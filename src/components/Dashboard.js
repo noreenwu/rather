@@ -4,22 +4,27 @@ import { connect } from 'react-redux'
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props)
+    // console.log("PROPS:" + this.props)
     return (
       <div>
-         Dashboard
+         <h3>Dashboard</h3>
+          <ul className='dashboard-list'>
+            {this.props.questionIds.map((id) => (
+              <li key={id}>
+                <div>QUESTION ID: {id}</div>
+              </li>
+            ))}
+          </ul>          
+         
       </div>
     )
   }
 }
 
-function mapStateToProps( state ) {
-  const { questions } = state
-  console.log(state)
+function mapStateToProps( {questions} ) {
   return { 
     //questionIds: Object.keys(questions)
     questionIds: Object.keys(questions),
-    otherthing: 'hello'
   }
 }
 
