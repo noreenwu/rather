@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../css/App.css';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import Dashboard from './Dashboard'
 
 class App extends Component {
   componentDidMount() {
@@ -10,15 +10,8 @@ class App extends Component {
   }  
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.<br/>
-		  Hi, there.
-        </p>
+      <div>
+		<Dashboard/>
       </div>
     );
   }
@@ -26,3 +19,4 @@ class App extends Component {
 
 
 export default connect()(App)
+//export default connect(mapStateToProps)(App)
