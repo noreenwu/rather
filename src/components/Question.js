@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatQuestion } from '../utils/helpers'
+import { formatQuestion, formatDate } from '../utils/helpers'
+import FAvatar from '../../images/user-female-100.jpg';
+
 
 class Question extends Component {
   render() {
@@ -11,12 +13,26 @@ class Question extends Component {
       return <p>This Question doesn't exist</p>
     }
     const {
-      name, avatarURL, timestamp
+      name, avatar, timestamp, optionA, optionB
     } = question    
     return(
-      <div className="Question">
-	      <h3>Question</h3>
-      	  <p>{name} has avatar {avatarURL} at timestamp {timestamp}</p>
+      <div className="question">
+
+      	  <div>
+              <div className="question-info">{name} asks...</div>
+			  <img alt={name} 
+				   src={FAvatar}
+				   className='avatar'
+			  />
+			   <span>{formatDate(timestamp)}</span>
+		  </div>
+		  <div className='question-text'>
+              <span><h3>Would you rather...</h3><p>{optionA}</p><p>OR</p><p>{optionB}</p></span>
+			  <button>View Poll</button>
+			  <img src={avatar}
+				   alt={`Avatar of ${name}`} 
+				   className='avatar'/>             
+		  </div>
       </div>
     )
   }
