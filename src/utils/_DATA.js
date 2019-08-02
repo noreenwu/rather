@@ -113,6 +113,19 @@ let questions = {
       text: 'write Swift'
     }
   },
+  "xj352vofupe1dqz9emx1HH": {
+    id: 'xj352vofupe1dqz9emx1HH',
+    author: 'johndoe',
+    timestamp: 1493579767190,
+    optionOne: {
+      votes: [],
+      text: 'write an opera',
+    },
+    optionTwo: {
+      votes: [],
+      text: 'write a novel'
+    }
+  },  
 }
 
 function generateUID () {

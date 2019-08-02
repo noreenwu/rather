@@ -21,9 +21,13 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps( {questions} ) {
+  
+  const qvals = Object.values(questions);
+  const answered = qvals.filter(q => q.optionOne.votes.length + q.optionTwo.votes.length === 0);
+  const answeredIds = answered.map(q => q.id);
+  
   return { 
-    //questionIds: Object.keys(questions)
-    questionIds: Object.keys(questions),
+    questionIds: answeredIds,
   }
 }
 
