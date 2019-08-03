@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
+import Nav from './Nav'
+
 
 class Dashboard extends Component {
 
@@ -24,29 +26,32 @@ class Dashboard extends Component {
   render() {    
     
     return (
-      <div className="center">
-         <h3>Dashboard</h3>
-    
-       	  <button
-      		type='button' 
-      		value='unanswered'
-		    onClick={ () => this.handleChange(event.target.value) }
-      	  >Unanswered</button>
-      
-		  <button
-      		type='button'
-      		value='answered'
-		    onClick={(event) => this.handleChange(event.target.value)}
-      	  >Answered</button>
-      
-          <ul className='dashboard-list'>
-            {this.state.questionIds.map((id) => (
-              <li key={id}>
-                <Question id={id}/>
-              </li>
-            ))}
-          </ul>          
-      </div>
+      <Fragment>
+          <Nav />
+          <div className="center">
+             <h3>Dashboard</h3>
+
+              <button
+                type='button' 
+                value='unanswered'
+                onClick={ () => this.handleChange(event.target.value) }
+              >Unanswered</button>
+
+              <button
+                type='button'
+                value='answered'
+                onClick={(event) => this.handleChange(event.target.value)}
+              >Answered</button>
+
+              <ul className='dashboard-list'>
+                {this.state.questionIds.map((id) => (
+                  <li key={id}>
+                    <Question id={id}/>
+                  </li>
+                ))}
+              </ul>          
+          </div>
+	  </Fragment>
     )
   }
 }
