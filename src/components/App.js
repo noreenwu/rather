@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../css/App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
+import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
+import Nav from './Nav'
 
 class App extends Component {
   componentDidMount() {
@@ -10,12 +15,22 @@ class App extends Component {
   }  
   render() {
     return (
-      <div>
-        {this.props.loading === true
-          ? null
-          : <Dashboard />}
-	  </div>      
-    );
+      <Router>
+        <Fragment>
+          <div className='container'>
+            <Nav />
+            {this.props.loading === true
+              ? null
+              : <div>
+                  <Route path='/' exact component={Dashboard} />
+                  <Route path='/new' component={NewQuestion} />
+				  <Route path='/leaderboard' component={LeaderBoard} />
+                </div>}
+          </div>
+        </Fragment>
+      </Router>      
+   
+    )
   }
 }
 

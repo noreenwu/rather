@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
-import Nav from './Nav'
 
 
 class Dashboard extends Component {
@@ -27,7 +26,6 @@ class Dashboard extends Component {
     
     return (
       <Fragment>
-          <Nav />
           <div className="center">
              <h3>Dashboard</h3>
 

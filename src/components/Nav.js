@@ -1,14 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+//import Dashboard from './Dashboard'
 
 export default function Nav () {
   return (
+
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/' exact activeClassName='active'>
+         <NavLink to='/' exact activeClassName='active'>
             Home
-          </NavLink>
+	     </NavLink>
         </li>
         <li>
           <NavLink to='/new' activeClassName='active'>
