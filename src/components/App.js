@@ -7,6 +7,7 @@ import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import SignIn from './SignIn'
 import Nav from './Nav'
 
 class App extends Component {
@@ -25,6 +26,8 @@ class App extends Component {
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/new' component={NewQuestion} />
 				  <Route path='/leaderboard' component={LeaderBoard} />
+				  <Route path='/signin' component={SignIn} />
+
                 </div>}
           </div>
         </Fragment>
