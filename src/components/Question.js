@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion, formatDate } from '../utils/helpers'
-
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
   render() {
@@ -12,12 +12,12 @@ class Question extends Component {
       return <p>This Question doesn't exist</p>
     }
     const {
-      name, avatar, timestamp, optionA, optionB
+      name, avatar, timestamp, optionA, optionB, id
     } = question    
     
     return(
       <div className="question">
-
+		  
       	  <div>
               <div className="question-info">{name} asks...</div>
 
@@ -28,7 +28,12 @@ class Question extends Component {
 		  </div>
 		  <div className='question-text'>
               <span><h3>Would you rather...</h3><p>{optionA}</p><p>OR</p><p>{optionB}</p></span>
-			  <button>View Poll</button>
+
+
+			  <Link to={`/poll/${id}`} 
+				    className='question'>
+				  <button>View Poll</button>
+ 			  </Link>
         
 		  </div>
       </div>
@@ -43,9 +48,10 @@ function mapStateToProps({authedUser, users, questions}, {id}) {
     authedUser,
     question: question
     	? formatQuestion(question, users[question.author], authedUser)
-        : null
-        
+        : null,
+    // isAnswered: users[authedUser].questions.includes(id)? true : false
   }
 }
 
-export default connect(mapStateToProps)(Question)
+//export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))
