@@ -2,25 +2,29 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {   withRouter } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
+import PollResults from './PollResults'
 
 class Poll extends Component {
 
    componentDidMount() {
      console.log("component did mount Poll ", this.props.match.params.id);
    }
+  
+	
    render() {
-     // const { id } = this.props;
      console.log('the props of Poll', this.props);
      console.log("was this question answered: ", this.props.isAnswered);
+
      const { question } = this.props     
      const {
-         optionA
+         optionA, optionB, id
      } = question  
-     console.log("optionA", optionA);
+     console.log("optionA and B", optionA, optionB);
      return(
+
        <div>
 	       Poll
-
+           <PollResults id={id}/>
        </div>
      )
    } 
@@ -38,8 +42,7 @@ function mapStateToProps({authedUser, users, questions}, ownProps) {
    
    isAnswered: question.optionOne.votes.includes(authedUser) ||
     		   question.optionTwo.votes.includes(authedUser) ? true : false
-   // isAnswered:  question.optionOne.votes.includes(authedUser) ||
-    //            question.optionTwo.votes.includes(authedUser) ? true : false
+
    }
 }
 
