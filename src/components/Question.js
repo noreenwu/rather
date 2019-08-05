@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion, formatDate } from '../utils/helpers'
-import { Link, withRouter } from 'react-router-dom'
+import { Link , withRouter } from 'react-router-dom'
 
 class Question extends Component {
   render() {
@@ -29,8 +29,7 @@ class Question extends Component {
 		  <div className='question-text'>
               <span><h3>Would you rather...</h3><p>{optionA}</p><p>OR</p><p>{optionB}</p></span>
 
-
-			  <Link to={`/poll/${id}`} 
+  			  <Link to={`/poll/${id}`} 
 				    className='question'>
 				  <button>View Poll</button>
  			  </Link>
