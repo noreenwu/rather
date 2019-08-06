@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion, formatDate } from '../utils/helpers'
 import { Link , withRouter } from 'react-router-dom'
+import Avatar from './Avatar'
 
 class Question extends Component {
   render() {
@@ -20,9 +21,8 @@ class Question extends Component {
 		  <div className="title">{name} asks</div>
       	  <div className="question">
 			  <div className="user-info">
-                  <img src={avatar}
-                       alt={`Avatar of ${name}`} 
-                       className='avatar'/>     
+				  <Avatar name={name} avatar={avatar}/>
+  
                    <div className="timestamp">{formatDate(timestamp)}</div>
 			   </div>
 		  

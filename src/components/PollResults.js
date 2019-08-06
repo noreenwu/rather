@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
+import Avatar from './Avatar'
+import Option from './Option'
 
 class PollResults extends Component {
   render() {
@@ -20,14 +22,13 @@ class PollResults extends Component {
       	  <h3>Poll Results</h3>
 		  <div className="question">
               <div className="user-info">				    
-					<img className="avatar" 
-                         alt="avatar of {name}"
-						 src={avatar}/>
+
+                    <Avatar name={name} avatar={avatar}/>
 
               </div>
               <div className="question-info">
-                  <p className="optionA">{optionA}</p>
-                  <p className="optionB">{optionB}</p>
+   				  <Option option={optionA}/>
+				  <Option option={optionB}/>
 			  </div>
 	      </div>
       
