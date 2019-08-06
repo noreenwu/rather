@@ -16,24 +16,26 @@ class Question extends Component {
     } = question    
     
     return(
-      <div className="question">
+      <div className="question-frame">
+		  <div className="title">{name} asks</div>
+      	  <div className="question">
+			  <div className="user-info">
+                  <img src={avatar}
+                       alt={`Avatar of ${name}`} 
+                       className='avatar'/>     
+                   <div className="timestamp">{formatDate(timestamp)}</div>
+			   </div>
 		  
-      	  <div>
-              <div className="question-info">{name} asks...</div>
+              <div className='question-info'>
+                  <div className="option">{optionA}</div>
+                    <p>OR</p>
+                  <div className="option">{optionB}</div>
 
-			  <img src={avatar}
-				   alt={`Avatar of ${name}`} 
-				   className='avatar'/>     
-			   <span>{formatDate(timestamp)}</span>
-		  </div>
-		  <div className='question-text'>
-              <span><h3>Would you rather...</h3><p>{optionA}</p><p>OR</p><p>{optionB}</p></span>
 
-  			  <Link to={`/poll/${id}`} 
-				    className='question'>
-				  <button>View Poll</button>
- 			  </Link>
-        
+                  <Link to={`/poll/${id}`}>                        
+                      <button className='poll-button'>View Poll</button>
+                  </Link>             
+              </div>
 		  </div>
       </div>
     )
