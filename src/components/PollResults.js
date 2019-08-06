@@ -4,9 +4,24 @@ import { formatQuestion } from '../utils/helpers'
 
 class PollResults extends Component {
   render() {
+    const { question } = this.props
+    
+    if (question === null) {
+      return <p>This Question doesn't exist</p>
+    }
+    const {
+      name, avatar, timestamp, optionA, optionB, id
+    } = question    
+    
     return(
        <div>
-      	  Poll Results
+          <span>Asked by {name} at {timestamp} avatar: {avatar} id: {id}</span>
+	      
+      	  <h3>Poll Results</h3>
+      	  <p className="optionA">{optionA}</p>
+		  <p className="optionB">{optionB}</p>
+	  
+      
        </div>
     )
   }
