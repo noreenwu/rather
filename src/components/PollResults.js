@@ -10,17 +10,26 @@ class PollResults extends Component {
       return <p>This Question doesn't exist</p>
     }
     const {
-      name, avatar, timestamp, optionA, optionB, id
+      name, avatar, optionA, optionB
     } = question    
     
     return(
-       <div>
-          <span>Asked by {name} at {timestamp} avatar: {avatar} id: {id}</span>
+       <div className="question-frame">
+          <div className="title">Asked by {name}</div>
 	      
       	  <h3>Poll Results</h3>
-      	  <p className="optionA">{optionA}</p>
-		  <p className="optionB">{optionB}</p>
-	  
+		  <div className="question">
+              <div className="user-info">				    
+					<img className="avatar" 
+                         alt="avatar of {name}"
+						 src={avatar}/>
+
+              </div>
+              <div className="question-info">
+                  <p className="optionA">{optionA}</p>
+                  <p className="optionB">{optionB}</p>
+			  </div>
+	      </div>
       
        </div>
     )
