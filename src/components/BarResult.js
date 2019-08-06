@@ -7,7 +7,7 @@ const BarResult = (props) => {
     voteSingPlur = 'vote'
   }
   return(
-    <div class="bar-result">
+    <div className="bar-result">
        {props.votesFor} out of {props.votesTotal} {voteSingPlur}
     </div>
   )

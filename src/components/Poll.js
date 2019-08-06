@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {   withRouter } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
 import PollResults from './PollResults'
+import Ballot from './Ballot'
 
 class Poll extends Component {
 
@@ -20,13 +21,24 @@ class Poll extends Component {
          optionA, optionB, id
      } = question  
      console.log("optionA and B", optionA, optionB);
-     return(
+     
+     if (this.props.isAnswered) {
+         return(
 
-       <div>
-	       Poll
-           <PollResults id={id}/>
-       </div>
-     )
+           <div>
+               <PollResults id={id}/>
+           </div>
+         )       
+     }
+     else {
+        return(
+           <div>
+            	<Ballot id={id}/>
+            </div>
+        )
+       
+     }
+
    } 
 }
 

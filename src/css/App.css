@@ -76,6 +76,10 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
+.dashboard-list {
+  list-style: none;
+}
 /* */
 
 .App {
