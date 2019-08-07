@@ -71,6 +71,11 @@
   text-align: center;
 }
 
+fieldset {
+  border: none;
+  margin-bottom: 10px;
+}
+
 .author {
   width: 100%;
   text-align: center;
