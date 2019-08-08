@@ -1,10 +1,10 @@
-//import React, { Component } from 'react'
-import React from 'react'
+import React, { Component } from 'react'
+// import React from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import Avatar from './Avatar'
 
-class Ballot extends React.Component {
+class Ballot extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -22,12 +22,15 @@ class Ballot extends React.Component {
   
   handleSubmit(event) {
     event.preventDefault();    
-    alert('A choice was submitted: ' + this.state.value);
-
+    alert('A choice was submitted: ' + this.state.value + ' ' + this.props.id);
+   // TODO: save permanently via the API and redirect to the PollResults page, passing the id
+    
+    
   }  
   
   
   render() {
+    const { value } = this.state
     const { question } = this.props
     if (question === null) {
       return <p>This Question doesn't exist</p>
@@ -53,16 +56,19 @@ class Ballot extends React.Component {
 		      <form onSubmit={this.handleSubmit}>
                   <fieldset>
                     <div className="choices">
-                       <input type="radio" name="choice" value="optionA" onChange={this.handleChange}/>
+                       <input type="radio" name="choice" value="optionOne" onChange={this.handleChange}/>
                        <label htmlFor="optionA">{optionA}</label>
                     </div>
                     <p>OR</p>
                     <div className="choices">
-                       <input type="radio" name="choice" value="optionB" onChange={this.handleChange}/>
+                       <input type="radio" name="choice" value="optionTwo" onChange={this.handleChange}/>
                        <label htmlFor="optionB">{optionB}</label>
                     </div>
                    </fieldset>
-				  <button>Submit</button>
+				  <button
+                    className='btn'
+                    type='submit'
+                    disabled={value === ''}>Submit</button>
 			   </form>
 
 			  </div>
