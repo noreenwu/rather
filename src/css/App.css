@@ -85,6 +85,18 @@ fieldset {
 .dashboard-list {
   list-style: none;
 }
+
+.new-question {
+  width: 100%;
+}
+input[type=text], select {    // no selects in app yet
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 /* */
 
 .App {
