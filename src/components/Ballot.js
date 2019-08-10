@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import React from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
+import { handleVote } from '../actions/questions'
 import Avatar from './Avatar'
 
 class Ballot extends Component {
@@ -22,9 +23,11 @@ class Ballot extends Component {
   
   handleSubmit(event) {
     event.preventDefault();    
-    alert('A choice was submitted: ' + this.state.value + ' ' + this.props.id);
+    console.log('Ballot: A choice was submitted: ' + this.state.value + ' ' + this.props.id, this.props.authedUser);
    // TODO: save permanently via the API and redirect to the PollResults page, passing the id
-    
+    const { dispatch } = this.props    
+    const answer = this.state.value;
+    dispatch(handleVote(this.props.authedUser, this.props.id, answer))
     
   }  
   

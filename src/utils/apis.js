@@ -17,6 +17,7 @@ export function getInitialData () {
 
 
 export function saveQuestionAnswer (info) {
+  console.log("apis: saveQuestionAnswer: ", info);
   return _saveQuestionAnswer(info)
 }
 

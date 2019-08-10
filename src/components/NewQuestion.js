@@ -31,7 +31,6 @@ class NewQuestion extends Component {
     
     console.log("NewQuestion: handleSubmit: ", optionA, optionB);
     
-    // TODO: save to permanent state via api
     dispatch(handleAddQuestion(optionA, optionB))
     
     this.setState(() => ({

@@ -12,13 +12,34 @@ export function receiveQuestions (questions) {
   }
 }
 
-
-function recordVote ({ id, authedUser, answer }) {
+function recordVote ({ authedUser, qid, answer }) {
+  console.log("recordVote: ", authedUser, qid, answer);
   return {
     type: RECORD_VOTE,
-    qid : id,
-    authedUser,
+    authedUser,    
+    qid,
     answer
+  }
+}
+
+export function handleVote (authedUser, qid, answer) {
+
+  const info = { authedUser, qid, answer }
+  console.log("actions/questions: handleVote: ", info);
+
+  return (dispatch) => {
+    dispatch(showLoading())   
+    dispatch(recordVote(info))
+    
+    return saveQuestionAnswer({
+         authedUser,
+         qid,
+         answer
+      })
+	  .then(() => dispatch(hideLoading()))    
+      .catch((e) => {
+        console.warn('Error in handleVote: ', e)
+      })
   }
 }
 
@@ -31,7 +52,6 @@ function addQuestion(question) {
 }
 
 export function handleAddQuestion(optionOneText, optionTwoText) {
-  console.log("handleAddQuestion ", optionOneText, optionTwoText);
 
   return (dispatch, getState) => {
     const { authedUser } = getState()   
@@ -47,15 +67,3 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
   }
 }
 
-export function handleVote (info) {
-  return (dispatch) => {
-    dispatch(recordVote(info))
-
-    return saveQuestionAnswer(info)
-      .catch((e) => {
-        console.warn('Error in handleVote: ', e)
-        dispatch(recordVote(info))
-        alert('The was an error saving the vote. Try again.')
-      })
-  }
-}
