@@ -25,7 +25,7 @@ class App extends Component {
             {this.props.loading === true
               ? null
               : <Fragment>
-		        <Nav authedUser={this.props.authedUser}/>
+		        <Nav name={this.props.name}/>
       
       			<div>
                   <Route path='/' exact component={Dashboard} />
@@ -35,14 +35,11 @@ class App extends Component {
 				  <Route path='/signin' component={SignIn} />
 
                 </div>
-
           		</Fragment>
 		}
           </div>
 
-
-        </Fragment>
-	  
+        </Fragment>	  
 
       </Router>        
     )
@@ -50,8 +47,19 @@ class App extends Component {
 }
 
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users }) {
+  //const name = users[authedUser].id
+  const userInfo = users[authedUser];
+  let name = '';
+  for(const key in userInfo) {
+    console.log(key);
+    if (key === 'name') {
+      name = userInfo[key];
+    }
+  }
+  
   return {
+    name,
     authedUser,
     loading: authedUser === null
   }

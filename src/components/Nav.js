@@ -24,7 +24,7 @@ export default function Nav (props) {
           </NavLink>
         </li>
     	<li>
-    		Hello, {props.authedUser}
+    		Hello, {props.name}
     	</li>
         <li>
           <NavLink to='/signin' activeClassName='signin'>
@@ -37,5 +37,5 @@ export default function Nav (props) {
 }
 
 Nav.propTypes = {
-   authedUser: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
 }
