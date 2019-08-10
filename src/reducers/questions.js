@@ -27,8 +27,9 @@ export default function questions (state = {}, action) {
           ...state[action.qid],
           [action.answer] : {
             ...state[action.answer],
-            text: state[action.qid].optionOne.text,
-            votes: state[action.qid].optionOne.votes.concat([action.authedUser])
+
+            votes: state[action.qid][action.answer].votes.concat([action.authedUser]),
+            text: state[action.qid][action.answer].text,            
           }
         }
 		// pass in the actual question that needs to be updated 
