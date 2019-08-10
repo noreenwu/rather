@@ -16,25 +16,35 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }  
   render() {
+    console.log("App: authedUser: ", this.props.authedUser);
     return (
+      
       <Router>
         <Fragment>
           <div className='container'>
-            <Nav />
             {this.props.loading === true
               ? null
-              : <div>
+              : <Fragment>
+		        <Nav authedUser={this.props.authedUser}/>
+      
+      			<div>
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/new' component={NewQuestion} />
 				  <Route path='/leaderboard' component={LeaderBoard} />
 				  <Route path='/poll/:id' component={Poll} />
 				  <Route path='/signin' component={SignIn} />
 
-                </div>}
+                </div>
+
+          		</Fragment>
+		}
           </div>
+
+
         </Fragment>
-      </Router>      
-   
+	  
+
+      </Router>        
     )
   }
 }
@@ -42,6 +52,7 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser }) {
   return {
+    authedUser,
     loading: authedUser === null
   }
 }

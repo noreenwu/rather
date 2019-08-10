@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-//import Dashboard from './Dashboard'
+import PropTypes from 'prop-types'
 
-export default function Nav () {
+
+export default function Nav (props) {
   return (
 
     <nav className='nav'>
@@ -23,7 +24,7 @@ export default function Nav () {
           </NavLink>
         </li>
     	<li>
-    		Hello, user
+    		Hello, {props.authedUser}
     	</li>
         <li>
           <NavLink to='/signin' activeClassName='signin'>
@@ -33,4 +34,8 @@ export default function Nav () {
       </ul>
     </nav>
   )
+}
+
+Nav.propTypes = {
+   authedUser: PropTypes.string.isRequired,
 }
