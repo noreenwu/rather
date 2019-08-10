@@ -27,7 +27,7 @@ export default function questions (state = {}, action) {
           ...state[action.qid],
           [action.answer] : {
             ...state[action.answer],
-            
+            text: state[action.qid].optionOne.text,
             votes: state[action.qid].optionOne.votes.concat([action.authedUser])
           }
         }
