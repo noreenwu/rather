@@ -16,7 +16,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }  
   render() {
-    console.log("App: authedUser: ", this.props.authedUser);
     return (
       
       <Router>
@@ -48,11 +47,9 @@ class App extends Component {
 
 
 function mapStateToProps ({ authedUser, users }) {
-  //const name = users[authedUser].id
   const userInfo = users[authedUser];
   let name = '';
   for(const key in userInfo) {
-    console.log(key);
     if (key === 'name') {
       name = userInfo[key];
     }

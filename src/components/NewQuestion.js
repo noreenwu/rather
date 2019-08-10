@@ -28,9 +28,7 @@ class NewQuestion extends Component {
     
     const {optionA, optionB} = this.state;
     const { dispatch } = this.props
-    
-    console.log("NewQuestion: handleSubmit: ", optionA, optionB);
-    
+        
     dispatch(handleAddQuestion(optionA, optionB))
     
     this.setState(() => ({

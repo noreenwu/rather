@@ -8,19 +8,16 @@ import Ballot from './Ballot'
 class Poll extends Component {
 
    componentDidMount() {
-     console.log("component did mount Poll ", this.props.match.params.id);
+//     console.log("component did mount Poll ", this.props.match.params.id);
    }
   
 	
    render() {
-     console.log('the props of Poll', this.props);
-     console.log("was this question answered: ", this.props.isAnswered);
-
      const { question } = this.props     
      const {
-         optionA, optionB, id
+       //  optionA, optionB, 
+       id
      } = question  
-     console.log("optionA and B", optionA, optionB);
      
      if (this.props.isAnswered) {
          return(

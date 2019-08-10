@@ -18,8 +18,6 @@ export default function questions (state = {}, action) {
       }
       
     case RECORD_VOTE:
-      const { authedUser, qid, answer } = action
-      console.log("RECORD_VOTE reducer: ", authedUser, qid, answer);
       
       return {
         ...state,
@@ -32,7 +30,6 @@ export default function questions (state = {}, action) {
             text: state[action.qid][action.answer].text,            
           }
         }
-		// pass in the actual question that needs to be updated 
         
       }
     default :

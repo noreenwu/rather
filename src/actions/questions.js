@@ -13,7 +13,6 @@ export function receiveQuestions (questions) {
 }
 
 function recordVote ({ authedUser, qid, answer }) {
-  console.log("recordVote: ", authedUser, qid, answer);
   return {
     type: RECORD_VOTE,
     authedUser,    
@@ -23,9 +22,7 @@ function recordVote ({ authedUser, qid, answer }) {
 }
 
 export function handleVote (authedUser, qid, answer) {
-
   const info = { authedUser, qid, answer }
-  console.log("actions/questions: handleVote: ", info);
 
   return (dispatch) => {
     dispatch(showLoading())   

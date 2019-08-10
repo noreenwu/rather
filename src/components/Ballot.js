@@ -15,7 +15,6 @@ class Ballot extends Component {
   }  
 
   handleChange(event) {
-	console.log("Ballot: handleChange");
     this.setState( {
       value: event.target.value
     })
@@ -23,8 +22,7 @@ class Ballot extends Component {
   
   handleSubmit(event) {
     event.preventDefault();    
-    console.log('Ballot: A choice was submitted: ' + this.state.value + ' ' + this.props.id, this.props.authedUser);
-   // TODO: save permanently via the API and redirect to the PollResults page, passing the id
+
     const { dispatch } = this.props    
     const answer = this.state.value;
     dispatch(handleVote(this.props.authedUser, this.props.id, answer))

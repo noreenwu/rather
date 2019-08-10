@@ -6,7 +6,7 @@ import Avatar from './Avatar'
 
 class Question extends Component {
   render() {
-    console.log("Question: ", this.props)
+   // console.log("Question: ", this.props)
     const { question } = this.props
 
     if (question === null) {
