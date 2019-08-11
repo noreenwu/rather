@@ -19,7 +19,7 @@
   padding-left: 20px;    
   margin: auto;
 }
-.question-frame {
+.question-frame, .sign-in, .user-status {
   width: 100%;
   max-width: 480px;
   padding: 10px;
@@ -103,13 +103,6 @@ fieldset {
   
 }
 .user-status {
-  width: 100%;
-  max-width: 480px;
-  padding: 10px;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 3px;
-  cursor: pointer; 
   display: flex;
   align-items: center;  
 }
