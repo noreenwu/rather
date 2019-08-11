@@ -6,6 +6,19 @@
    margin-bottom: 5px;
 }
 
+.user-score-info {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid lightgrey;
+  padding-left: 10px;  
+}
+
+.user-total-score {
+  border-left: 2px solid lightgrey;
+  padding-left: 20px;    
+  margin: auto;
+}
 .question-frame {
   width: 100%;
   max-width: 480px;
@@ -85,7 +98,21 @@ fieldset {
 .dashboard-list {
   list-style: none;
 }
-
+.user-list {
+  list-style: none;
+  
+}
+.user-status {
+  width: 100%;
+  max-width: 480px;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  cursor: pointer; 
+  display: flex;
+  align-items: center;  
+}
 .new-question {
   width: 100%;
 }
