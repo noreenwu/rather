@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 class UserOption extends Component {  
    render() {
-     const {id} = this.props
+     const {id, name} = this.props
      return(
-     	<option  value={id}>{id}</option>	
+     	<option  value={id}>{name}</option>	
      )
    }
   
@@ -13,8 +13,10 @@ class UserOption extends Component {
 
 
 function mapStateToProps( {users, authedUser}, {id} ) {
+  const name = users[id].name
   return {
-    id
+    id,
+    name
   }
 }
 

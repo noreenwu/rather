@@ -6,7 +6,7 @@ class SignIn extends Component {
      return(
        <div className="sign-in">
 	       <div className="title">Would You Rather...?</div>
-       	   <div className="game-logo">LOGO</div>
+       	   <div className="game-logo"><img alt="LOGO" src="../../images/would-you-rather-logo.jpg"/></div>
        	   <div><UserSelector/></div>
        </div>
      )
