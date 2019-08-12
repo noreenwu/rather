@@ -90,6 +90,24 @@
   text-align: center;
 }
 
+.bar-container {
+  width: 300px;
+}
+
+
+.bar-base {
+   background-color: grey;
+   width: 100%;
+   height: 20px;
+}
+
+.bar-fraction {
+   background-color: green;
+   height: 20px;
+   color: white;
+   text-align: right;
+}
+
 fieldset {
   border: none;
   margin-bottom: 10px;

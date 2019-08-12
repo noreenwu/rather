@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import BarGraph from './BarGraph'
 
 const BarResult = (props) => {
   let voteSingPlur = 'votes'
@@ -8,6 +9,7 @@ const BarResult = (props) => {
   }
   return(
     <div className="bar-result">
+       <BarGraph votesFor={props.votesFor} votesTotal={props.votesTotal}/>
        {props.votesFor} out of {props.votesTotal} {voteSingPlur}
     </div>
   )
