@@ -106,6 +106,8 @@
    height: 20px;
    color: white;
    text-align: right;
+   margin: 2px;
+   font-size: .8em;
 }
 
 fieldset {
