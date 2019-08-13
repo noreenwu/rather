@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UserOption from './UserOption'
+import { handleChangeAuthedUser } from '../actions/authedUser'
 
 class UserSelector extends Component {
    constructor(props) {
@@ -10,8 +11,13 @@ class UserSelector extends Component {
       // this.handleSubmit = this.handleSubmit.bind(this);    
    }  
   
+  
    handleChange(e) {
+      const {dispatch } = this.props
       console.log("UserSelector: handleChange ", e);
+      
+	// change authedUser to e     
+      dispatch(handleChangeAuthedUser(e));
    }  
    render() {
      const { userIds } = this.props;

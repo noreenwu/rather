@@ -6,3 +6,11 @@ export function setAuthedUser (id) {
     id,
   }
 }
+
+
+export function handleChangeAuthedUser(newAuthedUser) {
+    console.log("actions/authedUser: newAuthedUser ", newAuthedUser);
+    return (dispatch) => {
+      dispatch(setAuthedUser(newAuthedUser))      
+    }
+}
