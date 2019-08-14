@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
+import { handleAddQuestion } from '../actions/shared'
+//import { handleAddQuestion } from '../actions/users'
+
 
 class NewQuestion extends Component {
   constructor(props) {
@@ -28,8 +30,10 @@ class NewQuestion extends Component {
     
     const {optionA, optionB} = this.state;
     const { dispatch } = this.props
-        
-    dispatch(handleAddQuestion(optionA, optionB))
+            
+    dispatch(handleAddQuestion(optionA, optionB)) // works
+    // dispatch(handleAddQuestionUser(question, authedUser))
+
     
     this.setState(() => ({
         optionA: '',
@@ -76,5 +80,10 @@ class NewQuestion extends Component {
   }
 }
 
+function mapStateToProps( {authedUser} ) {
+  return {
+    authedUser
+  }
+}
 //export default NewQuestion
-export default connect()(NewQuestion)
+export default connect(mapStateToProps)(NewQuestion)
