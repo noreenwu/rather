@@ -12,9 +12,7 @@ export default function questions (state = {}, action) {
         ...state,
         [action.question.id] : action.question
       
-      }
-
-    
+      }    
     case RECORD_VOTE:
       
       return {
