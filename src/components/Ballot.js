@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import React from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
-import { handleVote } from '../actions/questions'
+import { handleVote } from '../actions/shared'
 import Avatar from './Avatar'
 
 class Ballot extends Component {

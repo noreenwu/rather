@@ -1,8 +1,8 @@
 import { getInitialData } from '../utils/apis'
 import { receiveUsers } from '../actions/users'
-import { receiveQuestions, addQuestion } from '../actions/questions'
+import { receiveQuestions, addQuestion, recordVote } from '../actions/questions'
 import { setAuthedUser } from '../actions/authedUser'
-import { saveQuestion} from '../utils/apis.js'
+import { saveQuestion, saveQuestionAnswer } from '../utils/apis.js'
 //import { showLoading, hideLoading } from 'react-redux-loading'
 
 //const AUTHED_ID = 'johndoe'
@@ -19,6 +19,25 @@ export function handleInitialData () {
   }
 }
 
+
+export function handleVote (authedUser, qid, answer) {
+  const info = { authedUser, qid, answer }
+
+  return (dispatch) => {
+    // dispatch(showLoading())   
+    dispatch(recordVote(info))
+    
+    return saveQuestionAnswer({
+         authedUser,
+         qid,
+         answer
+      })
+	 // .then(() => dispatch(hideLoading()))    
+      .catch((e) => {
+        console.warn('Error in handleVote: ', e)
+      })
+  }
+}
 
 export function handleAddQuestion(optionOneText, optionTwoText) {
 

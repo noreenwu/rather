@@ -14,7 +14,7 @@ export function receiveQuestions (questions) {
   }
 }
 
-function recordVote ({ authedUser, qid, answer }) {
+export function recordVote ({ authedUser, qid, answer }) {
   return {
     type: RECORD_VOTE,
     authedUser,    
@@ -23,11 +23,11 @@ function recordVote ({ authedUser, qid, answer }) {
   }
 }
 
-export function handleVote (authedUser, qid, answer) {
+export function handleVoteOrig (authedUser, qid, answer) {
   const info = { authedUser, qid, answer }
 
   return (dispatch) => {
-    dispatch(showLoading())   
+    // dispatch(showLoading())   
     dispatch(recordVote(info))
     
     return saveQuestionAnswer({
@@ -35,7 +35,7 @@ export function handleVote (authedUser, qid, answer) {
          qid,
          answer
       })
-	  .then(() => dispatch(hideLoading()))    
+	 // .then(() => dispatch(hideLoading()))    
       .catch((e) => {
         console.warn('Error in handleVote: ', e)
       })
