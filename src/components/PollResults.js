@@ -4,10 +4,11 @@ import { formatQuestion } from '../utils/helpers'
 import Avatar from './Avatar'
 import Option from './Option'
 import BarResult from './BarResult'
+import FlagUserResponse from './FlagUserResponse'
 
 class PollResults extends Component {
   render() {
-    const { question, votesOne, votesTwo } = this.props
+    const { question, votesOne, votesTwo, userAnswer } = this.props
     
     if (question === null) {
       return <p>This Question doesn't exist</p>
@@ -31,9 +32,11 @@ class PollResults extends Component {
               <div className="question-info">
       	  		  <h3>Results</h3>
    				  <Option option={optionA}/>
+				  <FlagUserResponse displayAnswer='optionOne' userAnswer={userAnswer}/>
 				  <BarResult votesFor={votesOne} votesTotal={votesOne + votesTwo}/>
 
 				  <Option option={optionB}/>
+				  <FlagUserResponse displayAnswer='optionTwo' userAnswer={userAnswer}/>
 				  <BarResult votesFor={votesTwo} votesTotal={votesOne + votesTwo}/>
 
 			  </div>
@@ -47,6 +50,8 @@ class PollResults extends Component {
 function mapStateToProps({authedUser, users, questions}, {id}) {
   const question = questions[id]
   //const votesOne = 0
+  console.log("PollResults: user ", users[authedUser].answers[id]);
+  const userAnswer = users[authedUser].answers[id];
   
   return {
     authedUser,
@@ -54,7 +59,8 @@ function mapStateToProps({authedUser, users, questions}, {id}) {
     	? formatQuestion(question, users[question.author], authedUser)
         : null,
     votesOne: question.optionOne.votes.length,
-    votesTwo: question.optionTwo.votes.length
+    votesTwo: question.optionTwo.votes.length,
+    userAnswer
    }
 }
 
