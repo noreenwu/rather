@@ -11,14 +11,12 @@ export default function users (state = {}, action) {
         ...action.users
       }
     case ADD_QUESTION :
-      const { users } = state
       const { qid, authedUser } = action
-      console.log("add the question ID to the users questions array", qid, authedUser);
-      console.log("ADD_QUESTION: users: ", users);
+      const users = state     
+      const user = users[authedUser]      
+      user.questions.push(qid);   // this adds the new question to the user's created questions in the state
       return {
-        ...state,        
-        ...action.users
-
+        ...state,
       }
     case RECORD_VOTE : 
       console.log("users reducer RECORD_VOTE");

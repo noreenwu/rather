@@ -8,10 +8,6 @@ export default function questions (state = {}, action) {
         ...action.questions
       }
     case ADD_QUESTION :
-      console.log("questions REDUCER: action type: ", action.type);
-      const { question, authedUser, qid } = action
-      console.log("questions reducer/ADD_QUESTION: ", question, authedUser);
-      console.log("questions reducer/ADD QUESTION: question id: ", qid);
       return {
         ...state,
         [action.question.id] : action.question
