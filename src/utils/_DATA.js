@@ -116,7 +116,7 @@ let questions = {
   "xj352vofupe1dqz9emx1HH": {
     id: 'xj352vofupe1dqz9emx1HH',
     author: 'johndoe',
-    timestamp: 1493579767190,
+    timestamp: 1467166872634,
     optionOne: {
       votes: [],
       text: 'write an opera',

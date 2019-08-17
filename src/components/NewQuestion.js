@@ -44,7 +44,7 @@ class NewQuestion extends Component {
     	})
    }   
 
-  
+ 
   
   render() {
 	 if (this.state.toHome === true) {

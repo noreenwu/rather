@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import Question from './Question'
 
 
+//import {  formatDate } from '../utils/helpers'
+
+
 class Dashboard extends Component {
 
   state = {
@@ -57,16 +60,19 @@ class Dashboard extends Component {
 function mapStateToProps( {questions, authedUser}) {
   
   const qvals = Object.values(questions);
-  
-  // TODO: change logic so we look for questions that the authed_user has not answered,
-  // instead of questions that no one has answered  
+  console.log("DASHBOARD qval timestamp: ", qvals[0].timestamp);
   const unanswered = qvals.filter(q => !q.optionOne.votes.includes(authedUser) &&
                                   	   !q.optionTwo.votes.includes(authedUser));
   
-  const unansweredIds = unanswered.map(q => q.id);
+  const unansweredSorted = unanswered.sort((a,b) => a.timestamp > b.timestamp ? -1 : 1 );
+  //console.log("DASHBOARD: unansweredSorted ", unansweredSorted);
+  
+  const unansweredIds = unansweredSorted.map(q => q.id);
   
   const answered = qvals.filter(q => unansweredIds.indexOf(q.id) === -1);
-  const answeredIds = answered.map(q => q.id);
+  const answeredSorted = answered.sort((a,b) => a.timestamp > b.timestamp ? -1 : 1);
+  
+  const answeredIds = answeredSorted.map(q => q.id);
   
   return {
     	unansweredIds: unansweredIds,
