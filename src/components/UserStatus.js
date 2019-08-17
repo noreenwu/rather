@@ -19,7 +19,7 @@ class UserStatus extends Component {
 
     	   </div>	
 		   <div className="user-total-score">
-               <div className="title">Score</div> 
+               <div className="score-title">Score</div> 
 			   <div className="score">{totalScore}</div>
 		   </div>
         </div>

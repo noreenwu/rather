@@ -3,8 +3,8 @@
 }
 
 .game-logo {
-   height: 400px; 
-   text-align: center;
+  height: 400px; 
+  text-align: center;
   align-items: center;
     
 }
@@ -25,6 +25,22 @@
   padding-left: 20px;    
   margin: auto;
 }
+
+.score-title {
+  text-align: center;
+}
+
+.score {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2em;
+  color: #fff;
+  line-height: 2.8em;
+  text-align: center;
+  background-color: green  
+}
+
 .question-frame, .sign-in, .user-status {
   width: 100%;
   max-width: 480px;
@@ -52,7 +68,7 @@
 }
 
 
-.title {
+.title, .score-title {
    padding: 10px;
    border: 1px solid #dad7d7;
    border-radius: 3px;
