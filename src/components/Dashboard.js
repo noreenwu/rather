@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
-
-
-//import {  formatDate } from '../utils/helpers'
+import { Redirect } from 'react-router-dom'
 
 
 class Dashboard extends Component {
@@ -26,7 +24,11 @@ class Dashboard extends Component {
   }
   
   render() {    
-    
+    if ( this.props.authedUser === '' ) {
+      return (
+        <Redirect to='/notfound'/>
+      )
+    }
     return (
       <Fragment>
           <div className="center">
@@ -60,12 +62,11 @@ class Dashboard extends Component {
 function mapStateToProps( {questions, authedUser}) {
   
   const qvals = Object.values(questions);
-  console.log("DASHBOARD qval timestamp: ", qvals[0].timestamp);
+
   const unanswered = qvals.filter(q => !q.optionOne.votes.includes(authedUser) &&
                                   	   !q.optionTwo.votes.includes(authedUser));
   
   const unansweredSorted = unanswered.sort((a,b) => a.timestamp > b.timestamp ? -1 : 1 );
-  //console.log("DASHBOARD: unansweredSorted ", unansweredSorted);
   
   const unansweredIds = unansweredSorted.map(q => q.id);
   
@@ -76,7 +77,8 @@ function mapStateToProps( {questions, authedUser}) {
   
   return {
     	unansweredIds: unansweredIds,
-    	answeredIds: answeredIds
+    	answeredIds: answeredIds,
+        authedUser
     }
 }
 

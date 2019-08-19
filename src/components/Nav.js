@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
+import NavSignInOut from './NavSignInOut'
 
 export default function Nav (props) {
   return (
@@ -23,14 +23,8 @@ export default function Nav (props) {
             Leader Board
           </NavLink>
         </li>
-    	<li>
-    		Hello, {props.name}
-    	</li>
-        <li>
-          <NavLink to='/signin' activeClassName='signin'>
-            Logout
-          </NavLink>
-        </li>    
+		<NavSignInOut name={props.name}/>
+
       </ul>
     </nav>
   )

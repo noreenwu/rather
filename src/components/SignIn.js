@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import UserSelector from './UserSelector'
+import { handleChangeAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
+  
+   componentDidMount() {
+      const { dispatch } = this.props  
+      
+      console.log("SignIn: ComponentDidMount");
+      dispatch(handleChangeAuthedUser(''));      
+   }
+  
    render() {
+
      return(
        <div className="sign-in">
 	       <div className="title">Would You Rather...?</div>
@@ -14,4 +25,10 @@ class SignIn extends Component {
   
 }
 
-export default SignIn
+function mapStateToProps({authedUser}) {
+   return {
+     authedUser
+   }
+}
+
+export default connect(mapStateToProps)(SignIn)

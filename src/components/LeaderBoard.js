@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UserStatus from './UserStatus'
+import { Redirect } from 'react-router-dom'
+
 
 class LeaderBoard extends Component {
    render() {
+     if ( this.props.authedUser === '' ) {
+       return (
+         <Redirect to='/notfound'/>
+       )
+     }     
      return(
        <div className="center">
 	       LeaderBoard
@@ -20,7 +27,7 @@ class LeaderBoard extends Component {
   
 }
 
-function mapStateToProps( {users} ) {
+function mapStateToProps( {users, authedUser } ) {
     // TODO: users need to be sorted in order of highest to lowest score, which is 
     //   answered questions + created questions
   
@@ -36,7 +43,8 @@ function mapStateToProps( {users} ) {
     })
 	const sortedIds = sorted.map(x => x.id);                   
     return {
-      sortedIds
+      sortedIds,
+      authedUser
     }
 }
 //export default LeaderBoard
