@@ -13,7 +13,7 @@ class UserStatus extends Component {
 				  <Avatar name={name} avatar={avatar}/>
            </div>
            <div className="user-score-info">
-       		   <h3>{name}</h3>
+       		   <div className="user-name">{name}</div>
                <div className="user-answered">
 					<span className="user-ans-score-title">Answered questions</span>
 				    <span className="user-ans-score"> {numAnswers}</span>
@@ -25,7 +25,7 @@ class UserStatus extends Component {
 
     	   </div>	
 		   <div className="user-total-score">
-               <div className="score-title">Score</div> 
+               <div className="score-label">Score</div> 
 			   <div className="score">{totalScore}</div>
 		   </div>
         </div>

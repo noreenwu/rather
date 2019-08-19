@@ -13,7 +13,7 @@ class Question extends Component {
       return <p>This Question doesn't exist</p>
     }
     const {
-      name, avatar, timestamp, optionA, optionB, id
+      name, avatar, timestamp, optionA, id
     } = question    
     
     return(
@@ -27,10 +27,7 @@ class Question extends Component {
 			   </div>
 		  
               <div className='question-info'>
-                  <div className="option">{optionA}</div>
-                    <p>OR</p>
-                  <div className="option">{optionB}</div>
-
+                  <div className="dashboard-option">...{optionA}...</div>
 
                   <Link to={`/poll/${id}`}>                        
                       <button className='poll-button'>View Poll</button>

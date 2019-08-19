@@ -12,6 +12,11 @@
    margin-bottom: 5px;
 }
 
+.user-name {
+   font-size: 1.6em;
+   font-weight: bold;
+   margin-bottom: 15px;  
+}
 .user-score-info {
   margin: 10px;
   display: flex;
@@ -30,15 +35,19 @@
 .user-ans-score, .user-cre-score {
   float: right;
 }
+.score-label {
+   background-color: #f5f3f3;
+   font-style: Arial;
+   font-size: .9em;
+   font-weight: bold; 
+   margin: 10px 0;
+   padding: 10px 0;  
+}
 
 .user-total-score {
   border-left: 2px solid lightgrey;
-  padding-left: 20px;    
+  padding: 20px;    
   margin: auto;
-}
-
-.score-title {
-  text-align: center;
 }
 
 .score {
@@ -54,7 +63,7 @@
 
 .question-frame, .sign-in, .user-status {
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   padding: 10px;
   margin: 0 auto;
   border: 1px solid #dad7d7;
@@ -76,10 +85,11 @@
   flex-direction: column;
   border-left: 2px solid lightgrey;
   padding-left: 10px;
+  width: 100%;
 }
 
 
-.title, .score-title {
+.title {
    padding: 10px;
    border: 1px solid #dad7d7;
    border-radius: 3px;
@@ -94,6 +104,13 @@
 }
 .user-info {
    padding-right: 10px;
+}
+
+.dashboard-option { 
+   padding: 10px;
+   margin: 10px;
+   font-size: 1.2em;
+   font-family: Georgia;  
 }
 
 .option {
@@ -111,6 +128,7 @@
   padding: 5px;
   font-size: 1.3em;
   cursor: pointer;
+  width: 100%;
 }
 
 .bar-result {
