@@ -28,9 +28,7 @@ class Ballot extends Component {
     dispatch(handleVote(this.props.authedUser, this.props.id, answer))
     
   }  
-  
-
-  
+    
   render() {
     const { value } = this.state
     const { question } = this.props
@@ -61,7 +59,7 @@ class Ballot extends Component {
                        <input type="radio" name="choice" value="optionOne" onChange={this.handleChange}/>
                        <label htmlFor="optionA">{optionA}</label>
                     </div>
-                    <p>OR</p>
+
                     <div className="choices">
                        <input type="radio" name="choice" value="optionTwo" onChange={this.handleChange}/>
                        <label htmlFor="optionB">{optionB}</label>

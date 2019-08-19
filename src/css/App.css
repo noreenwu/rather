@@ -65,12 +65,11 @@
   width: 100%;
   max-width: 500px;
   padding: 10px;
-  margin: 0 auto;
+  margin: 10px auto;
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: pointer;
 }
-
 
 .question {
   padding: 10px;
@@ -123,7 +122,7 @@
    font-family: Georgia;
 }
 
-.poll-button {
+.poll-button, .btn {
   margin: 10px;
   padding: 5px;
   font-size: 1.3em;
@@ -160,6 +159,12 @@ fieldset {
   margin-bottom: 10px;
 }
 
+.choices {
+  margin-bottom: 10px;
+}
+input[type="radio"] {
+  margin-right: 7px;
+}
 .author {
   width: 100%;
   text-align: center;
