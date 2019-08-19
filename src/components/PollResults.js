@@ -31,13 +31,16 @@ class PollResults extends Component {
               </div>
               <div className="question-info">
       	  		  <h3>Results</h3>
-   				  <Option option={optionA}/>
-				  <FlagUserResponse displayAnswer='optionOne' userAnswer={userAnswer}/>
-				  <BarResult votesFor={votesOne} votesTotal={votesOne + votesTwo}/>
-
-				  <Option option={optionB}/>
-				  <FlagUserResponse displayAnswer='optionTwo' userAnswer={userAnswer}/>
-				  <BarResult votesFor={votesTwo} votesTotal={votesOne + votesTwo}/>
+				  <div className="option-result-block">
+                      <Option option={optionA}/>
+                      <FlagUserResponse displayAnswer='optionOne' userAnswer={userAnswer}/>
+                      <BarResult votesFor={votesOne} votesTotal={votesOne + votesTwo}/>
+				  </div>
+				  <div className="option-result-block">
+                      <Option option={optionB}/>
+                      <FlagUserResponse displayAnswer='optionTwo' userAnswer={userAnswer}/>
+                      <BarResult votesFor={votesTwo} votesTotal={votesOne + votesTwo}/>
+				  </div>
 
 			  </div>
 	      </div>

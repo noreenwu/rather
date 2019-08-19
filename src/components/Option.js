@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Option = (props) => {
   return(
-    <div className="option">{props.option}</div>    
+    <div className="option">Would you rather {props.option}?</div>    
   )
 }
 

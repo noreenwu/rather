@@ -112,12 +112,16 @@
    font-family: Georgia;  
 }
 
-.option {
+.option-result-block {
    border: 3px solid lightgrey;
-   border-radius: 10px;  
+   border-radius: 10px;    
+   background-color: #f3f5f5;  
+   margin: 10px;
+}
+
+.option {
    padding: 10px;
    margin: 10px;
-   background-color: #f3f5f5;
    font-size: 1.2em;
    font-family: Georgia;
 }
@@ -132,6 +136,7 @@
 
 .bar-result {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .bar-container {
@@ -141,8 +146,9 @@
 
 .bar-base {
    background-color: grey;
-   width: 100%;
+   width: 96%;
    height: 20px;
+   margin: 10px;
 }
 
 .bar-fraction {
