@@ -14,8 +14,14 @@ class UserStatus extends Component {
            </div>
            <div className="user-score-info">
        		   <h3>{name}</h3>
-               <div>Answered questions {numAnswers}</div>
-			   <div>Created questions {numQuestions}</div>
+               <div className="user-answered">
+					<span className="user-ans-score-title">Answered questions</span>
+				    <span className="user-ans-score"> {numAnswers}</span>
+			   </div>
+			   <div className="user-created">
+					<span className="user-cre-score-title">Created questions</span>
+					<span className="user-cre-score"> {numQuestions}</span>
+			   </div>
 
     	   </div>	
 		   <div className="user-total-score">

@@ -20,6 +20,17 @@
   padding-left: 10px;  
 }
 
+.user-answered, .user-created {
+  margin: 10px;
+  width: 100%;
+}
+.user-ans-score-title, .user-cre-score-title {
+  float: left;
+}
+.user-ans-score, .user-cre-score {
+  float: right;
+}
+
 .user-total-score {
   border-left: 2px solid lightgrey;
   padding-left: 20px;    
