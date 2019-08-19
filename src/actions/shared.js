@@ -3,10 +3,9 @@ import { receiveUsers } from '../actions/users'
 import { receiveQuestions, addQuestion, recordVote } from '../actions/questions'
 import { setAuthedUser } from '../actions/authedUser'
 import { saveQuestion, saveQuestionAnswer } from '../utils/apis.js'
-//import { showLoading, hideLoading } from 'react-redux-loading'
 
 //const AUTHED_ID = 'johndoe'
-const AUTHED_ID = 'sarahedo'
+const AUTHED_ID = ''
 
 export function handleInitialData () {
   return(dispatch) => {

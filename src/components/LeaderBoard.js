@@ -8,7 +8,7 @@ class LeaderBoard extends Component {
    render() {
      if ( this.props.authedUser === '' ) {
        return (
-         <Redirect to='/notfound'/>
+         <Redirect to='/signin'/>
        )
      }     
      return(

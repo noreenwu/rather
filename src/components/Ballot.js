@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import React from 'react'
+//import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import { handleVote } from '../actions/shared'
@@ -29,6 +29,7 @@ class Ballot extends Component {
     
   }  
   
+
   
   render() {
     const { value } = this.state

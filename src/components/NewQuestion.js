@@ -58,7 +58,7 @@ class NewQuestion extends Component {
   render() {
     
      if ( this.props.authedUser === '' ) {
-         return <Redirect to='/notfound' />
+         return <Redirect to='/signin' />
      }
          
 	 if (this.state.toHome === true) {

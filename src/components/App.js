@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import '../css/App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
-import LoadingBar from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading-bar'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import NewQuestion from './NewQuestion'
@@ -30,14 +30,14 @@ class App extends Component {
 		        <Nav name={this.props.name}/>
       
       			<div>
-                  <Route path='/' exact component={Dashboard} />
-                  <Route path='/add' component={NewQuestion} />
-				  <Route path='/leaderboard' component={LeaderBoard} />
-				  <Route path='/poll/:id' component={Poll} />
-				  <Route path='/signin' component={SignIn} />
-				  <Route path='/notfound' component={NotFound} />
-
-
+                  <Switch>
+                    <Route path='/' exact component={Dashboard} />
+                    <Route path='/add' component={NewQuestion} />
+                    <Route path='/leaderboard' component={LeaderBoard} />
+                    <Route path='/poll/:id' component={Poll} />
+                    <Route path='/signin' component={SignIn} />
+                    <Route component={NotFound} />	
+				  </Switch>
                 </div>
           		</Fragment>
 		}

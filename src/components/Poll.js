@@ -4,17 +4,24 @@ import {   withRouter } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
 import PollResults from './PollResults'
 import Ballot from './Ballot'
+import { Redirect } from 'react-router-dom'
 
 class Poll extends Component {
-
 	
    render() {
+     if (this.props.authedUser === '') {
+         return(
+        	<Redirect to='/signin'/>         )
+     }     
+     
+     // TODO: check if poll with specified id exists, and if not, redirect to NotFound
      const { question } = this.props     
      const {
        //  optionA, optionB, 
        id
      } = question  
      
+
      if (this.props.isAnswered) {
          return(
 
