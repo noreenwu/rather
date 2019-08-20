@@ -70,6 +70,8 @@ class NewQuestion extends Component {
 
         <div className="question-frame">
           <h3 className="title">Create New Question</h3>
+          <p>Complete the question:</p>
+          <div className="subheading">Would you rather...</div>
           <form className='new-question' onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -77,22 +79,23 @@ class NewQuestion extends Component {
               placeholder="option A"
               value={this.state.optionA}
               onChange={this.handleChange}
-              className='textarea'
+              className='text-area'
               maxLength={100}
-              size={80}
+              size={79}
             />
-            <p>OR</p>
+            <p className="center">OR</p>
             <input
               name="optionB"
               type="text"
               placeholder="option B"
               value={this.state.optionB}
               onChange={this.handleChange}
+       		  className='text-area'
               maxLength={100}
-              size={80}
+              size={79}
             />
             <button
-              className='btn'
+              className={`btn btn-full`}
               type='submit'
               disabled={this.state.optionA === '' || this.state.optionB === ''}>
                 Submit

@@ -49,6 +49,7 @@
   border-left: 2px solid lightgrey;
   padding: 20px;    
   margin: auto;
+  background-color: #f5f3f3  
 }
 
 .score {
@@ -101,8 +102,13 @@
    font-style: Arial;
    font-size: 1.2em;
    font-weight: bold;
+   text-align: center;
 }
 
+.subheading {
+   font-weight: bold;
+   margin: 25px 0 10px;
+}
 .timestamp {
    font-size: .4em;
 }
@@ -133,7 +139,7 @@
 
 
 .btn {
-  margin: 10px;
+  margin: 5px;
   padding: 5px;
   font-size: 1.3em;
   cursor: pointer;  
@@ -222,8 +228,11 @@ input[type=text], select {    // no selects in app yet
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  height: 30px;
 }
-
+.text-area {
+  padding: 0 10px;
+}
 .nav {
   margin: 40px;
 }

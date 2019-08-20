@@ -22,7 +22,6 @@ class PollResults extends Component {
        <div className="question-frame">
           <div className="title">Asked by {name}</div>
 	      
-
 		  <div className="question">
               <div className="user-info">				    
 
