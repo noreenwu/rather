@@ -9,6 +9,18 @@ import FlagUserResponse from './FlagUserResponse'
 class PollResults extends Component {
   render() {
     const { question, votesOne, votesTwo, userAnswer } = this.props
+
+    let optionOneHighlight, optionTwoHighlight = ''
+    let optionOneHide, optionTwoHide = ''
+    
+    if (userAnswer === 'optionOne') {
+      optionOneHighlight = 'highlight'
+      optionTwoHide = 'user-vote-hide'
+    }
+    else if (userAnswer === 'optionTwo') {
+      optionTwoHighlight = 'highlight'
+      optionOneHide = 'user-vote-hide'
+    }
     
     if (question === null) {
       return <p>This Question doesn't exist</p>
@@ -30,15 +42,15 @@ class PollResults extends Component {
               </div>
               <div className="question-info">
       	  		  <h3>Results</h3>
-				  <div className="option-result-block">
+				  <div className={`option-result-block ${optionOneHighlight}`}>
+                      <FlagUserResponse optionHide={optionOneHide}/>
                       <Option option={optionA}/>
-                      <FlagUserResponse displayAnswer='optionOne' userAnswer={userAnswer}/>
-                      <BarResult votesFor={votesOne} votesTotal={votesOne + votesTwo}/>
+					  <BarResult votesFor={votesOne} votesTotal={votesOne + votesTwo}/>
 				  </div>
-				  <div className="option-result-block">
+				  <div className={`option-result-block ${optionTwoHighlight}`}>
+                      <FlagUserResponse optionHide={optionTwoHide}/>
                       <Option option={optionB}/>
-                      <FlagUserResponse displayAnswer='optionTwo' userAnswer={userAnswer}/>
-                      <BarResult votesFor={votesTwo} votesTotal={votesOne + votesTwo}/>
+					  <BarResult votesFor={votesTwo} votesTotal={votesOne + votesTwo}/>
 				  </div>
 
 			  </div>
