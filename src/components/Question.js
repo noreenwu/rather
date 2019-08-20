@@ -30,7 +30,7 @@ class Question extends Component {
                   <div className="dashboard-option">...{optionA}...</div>
 
                   <Link to={`/poll/${id}`}>                        
-                      <button className='poll-button'>View Poll</button>
+                      <button className={`btn btn-full`}>View Poll</button>
                   </Link>             
               </div>
 		  </div>

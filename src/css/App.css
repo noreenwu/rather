@@ -23,6 +23,7 @@
   flex-direction: column;
   border-left: 2px solid lightgrey;
   padding-left: 10px;  
+  width: 40%;
 }
 
 .user-answered, .user-created {
@@ -61,6 +62,10 @@
   background-color: green  
 }
 
+.btn-container {
+  width: 500px;
+  margin: auto;
+}
 .question-frame, .sign-in, .user-status {
   width: 100%;
   max-width: 500px;
@@ -126,7 +131,23 @@
    font-family: Georgia;
 }
 
-.poll-button, .btn {
+
+.btn {
+  margin: 10px;
+  padding: 5px;
+  font-size: 1.3em;
+  cursor: pointer;  
+}
+
+.btn-half {
+  width: 42%;
+  margin-bottom: 0;
+}
+.btn-full {
+  width: 100%;
+}
+
+.poll-button {
   margin: 10px;
   padding: 5px;
   font-size: 1.3em;
@@ -145,15 +166,18 @@
 
 
 .bar-base {
+   border: 3px solid lightgrey;
+   border-radius: 10px;     
    background-color: grey;
-   width: 96%;
+   width: 92%;
    height: 20px;
    margin: 10px;
 }
 
 .bar-fraction {
+   border-radius: 10px;     
    background-color: green;
-   height: 20px;
+   height: 17px;
    color: white;
    text-align: right;
    margin: 2px;

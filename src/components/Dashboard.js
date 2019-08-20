@@ -33,19 +33,21 @@ class Dashboard extends Component {
       <Fragment>
           <div className="center">
              <h3>Dashboard</h3>
+			  <div className="btn-container">
+                  <button
+                    className={`btn btn-half`}
+                    type='button' 
+                    value='unanswered'
+                    onClick={ () => this.handleChange(event.target.value) }
+                  >Unanswered</button>
 
-              <button
-                type='button' 
-                value='unanswered'
-                onClick={ () => this.handleChange(event.target.value) }
-              >Unanswered</button>
-
-              <button
-                type='button'
-                value='answered'
-                onClick={(event) => this.handleChange(event.target.value)}
-              >Answered</button>
-
+                  <button
+                    className={`btn btn-half`}
+                    type='button'
+                    value='answered'
+                    onClick={(event) => this.handleChange(event.target.value)}
+                  >Answered</button>
+			  </div>
               <ul className='dashboard-list'>
                 {this.state.questionIds.map((id) => (
                   <li key={id}>

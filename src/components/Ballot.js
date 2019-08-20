@@ -66,7 +66,7 @@ class Ballot extends Component {
                     </div>
                    </fieldset>
 				  <button
-                    className='btn'
+                    className={`btn btn-full`}
                     type='submit'
                     disabled={value === ''}>Submit</button>
 			   </form>
