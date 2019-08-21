@@ -18,6 +18,7 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }  
   render() {
+    console.log("App");
     return (
       
       <Router>
@@ -34,7 +35,7 @@ class App extends Component {
                     <Route path='/' exact component={Dashboard} />
                     <Route path='/add' component={NewQuestion} />
                     <Route path='/leaderboard' component={LeaderBoard} />
-                    <Route path='/poll/:id' component={Poll} />
+                    <Route path='/questions/:id' component={Poll} />
                     <Route path='/signin' component={SignIn} />
                     <Route component={NotFound} />	
 				  </Switch>

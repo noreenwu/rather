@@ -29,7 +29,7 @@ class Question extends Component {
               <div className='question-info'>
                   <div className="dashboard-option">...{optionA}...</div>
 
-                  <Link to={`/poll/${id}`}>                        
+                  <Link to={`/questions/${id}`}>                        
                       <button className={`btn btn-full`}>View Poll</button>
                   </Link>             
               </div>

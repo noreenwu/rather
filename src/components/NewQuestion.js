@@ -58,10 +58,12 @@ class NewQuestion extends Component {
   render() {
     
      if ( this.props.authedUser === '' ) {
+         console.log("NewQuestion redirecting to /signin");
          return <Redirect to='/signin' />
      }
          
 	 if (this.state.toHome === true) {
+         console.log("NewQuestion redirecting to /");
          return <Redirect to='/' />
       }
 
