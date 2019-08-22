@@ -254,6 +254,7 @@ input[type=text], select {    // no selects in app yet
 }
 .text-area {
   padding: 0 10px;
+  width: 98%;
 }
 .nav {
   margin: 40px;
