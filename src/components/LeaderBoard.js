@@ -8,7 +8,11 @@ class LeaderBoard extends Component {
    render() {
      if ( this.props.authedUser === '' ) {
        return (
-         <Redirect to='/signin'/>
+           <Redirect to={{
+                pathname: '/signin',
+                state: { returnTo: '/leaderboard' }
+            }}
+			/>
        )
      }     
      return(

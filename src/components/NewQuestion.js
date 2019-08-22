@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
 //import { handleAddQuestion } from '../actions/users'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter  } from 'react-router-dom'
 //import NotFound from './NotFound'
 
 class NewQuestion extends Component {
@@ -59,7 +59,16 @@ class NewQuestion extends Component {
     
      if ( this.props.authedUser === '' ) {
          console.log("NewQuestion redirecting to /signin");
-         return <Redirect to='/signin' />
+         // this.props.history.push('/add')
+
+
+         return (
+           <Redirect to={{
+                pathname: '/signin',
+                state: { returnTo: '/add' }
+            }}
+			/>
+		 )
      }
          
 	 if (this.state.toHome === true) {
@@ -115,4 +124,4 @@ function mapStateToProps( {authedUser} ) {
   }
 }
 //export default NewQuestion
-export default connect(mapStateToProps)(NewQuestion)
+export default withRouter(connect(mapStateToProps)(NewQuestion))

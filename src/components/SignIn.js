@@ -14,11 +14,15 @@ class SignIn extends Component {
   
    render() {
 
+     console.log("SignIn: did I receive the next page ", this.props.location.state);
+     let returnTo = this.props.location.state.returnTo;
+
+     
      return(
        <div className="sign-in">
 	       <div className="title">Would You Rather...?</div>
        	   <div className="game-logo"><img alt="LOGO" src="../../images/would-you-rather-logo.jpg"/></div>
-       	   <div><UserSelector/></div>
+       	   <div><UserSelector returnTo={returnTo}/></div>
        </div>
      )
    }

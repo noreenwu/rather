@@ -33,9 +33,9 @@ class UserSelector extends Component {
    render() {
      const { userIds } = this.props;
 	 console.log("userIds", userIds);
-     
+     console.log("userIds returnTo: ", this.props.returnTo);
 	 if (this.state.toHome === true) {
-         return <Redirect to='/' />
+         return <Redirect to={this.props.returnTo} />
       }     
      
      return(
@@ -53,7 +53,7 @@ class UserSelector extends Component {
    }  
 }
 
-function mapStateToProps( {users, authedUser} ) {
+function mapStateToProps( {users, authedUser}, {returnTo} ) {
     const userIds = Object.values(users).map(x => x.id)
     //const userNames = Object.values(users).map(x => x.name)
 	return {

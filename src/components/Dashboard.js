@@ -26,11 +26,15 @@ class Dashboard extends Component {
 
   render() {    
 
-    console.log("Dashboard");
+    console.log("Dashboard this.props ", this.props);
     if ( this.props.authedUser === '' ) {
       console.log("Dashboard authedUser ", this.props);
       return (
-        <Redirect to='/signin'/>
+           <Redirect to={{
+                pathname: '/signin',
+                state: { returnTo: '/' }
+            }}
+			/>
       )
     }
     return (
