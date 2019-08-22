@@ -14,9 +14,12 @@ class SignIn extends Component {
   
    render() {
 
-     console.log("SignIn: did I receive the next page ", this.props.location.state);
-     let returnTo = this.props.location.state.returnTo;
+     console.log("SignIn: did I receive the next page ", this.props.location);
 
+
+     const { returnTo = ''} = this.props.location.state || {};
+
+     
      
      return(
        <div className="sign-in">

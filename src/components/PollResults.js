@@ -16,10 +16,12 @@ class PollResults extends Component {
     if (userAnswer === 'optionOne') {
       optionOneHighlight = 'highlight'
       optionTwoHide = 'user-vote-hide'
+      optionOneHide = ''
     }
     else if (userAnswer === 'optionTwo') {
       optionTwoHighlight = 'highlight'
       optionOneHide = 'user-vote-hide'
+      optionTwoHide = ''
     }
     
     if (question === null) {
