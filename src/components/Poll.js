@@ -10,8 +10,15 @@ class Poll extends Component {
 	
    render() {
      if (this.props.authedUser === '') {
-         return(
-        	<Redirect to='/signin'/>         )
+           console.log("Poll will redirect and the id is ", this.props.id);
+       
+           return (
+             <Redirect to={{
+                  pathname: '/signin',
+                  state: { returnTo: `/questions/${this.props.id}` }
+                 }}
+              />
+           )       
      }     
      
      // TODO: check if poll with specified id exists, and if not, redirect to NotFound
@@ -47,6 +54,7 @@ function mapStateToProps({authedUser, users, questions}, ownProps) {
   const question = questions[id]
   // did the authedUser answer this question?
   return {
+    id,
     authedUser,
     question: question
     	? formatQuestion(question, users[question.author], authedUser)

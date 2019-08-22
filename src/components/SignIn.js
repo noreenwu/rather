@@ -16,11 +16,8 @@ class SignIn extends Component {
 
      console.log("SignIn: did I receive the next page ", this.props.location);
 
-
      const { returnTo = ''} = this.props.location.state || {};
-
-     
-     
+          
      return(
        <div className="sign-in">
 	       <div className="title">Would You Rather...?</div>
