@@ -17,7 +17,7 @@ class SignIn extends Component {
           
      return(
        <div className="sign-in">
-	       <div className="title">Would You Rather...?</div>
+	       <div className="title">To play, please sign in below.</div>
        	   <div className="game-logo"><img alt="LOGO" src="../../images/would-you-rather-logo.jpg"/></div>
        	   <div><UserSelector returnTo={returnTo}/></div>
        </div>

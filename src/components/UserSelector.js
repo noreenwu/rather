@@ -39,7 +39,7 @@ class UserSelector extends Component {
         <div className="user-selector">
               <select value={this.props.authedUser} 
         			  onChange={(event) => this.handleChange(event.target.value)}>
-					   <option value="" disabled>Select a user</option>	
+					   <option value="" disabled>Select a user to sign in</option>	
                       {userIds.map(x => 
                           <UserOption key={x} id={x}/>) 
                       }
