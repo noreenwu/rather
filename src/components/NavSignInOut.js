@@ -6,21 +6,21 @@ export default function NavSignInOut (props) {
      if (props.name !== '') {
        return (
           <Fragment>
-              <li>
-                  Hello, {props.name}
-              </li>
-              <li>
-                <NavLink to='/signin' activeClassName='signin'>
+              <li className="li-std">
+                <NavLink to='/signin' activeClassName='active'>
                   Logout
                 </NavLink>
               </li>
+              <li className="nav-login-name">
+                  Hello, {props.name}
+              </li>         
           </Fragment>
        )
      }
      else {
         return (
-          <li>
-             <NavLink to='/signin' activeClassName='signin'>
+          <li className="li-std">
+             <NavLink to='/signin' activeClassName='active'>
              	Sign in
              </NavLink>
           </li>

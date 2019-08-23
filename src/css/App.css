@@ -259,22 +259,56 @@ input[type=text], select {    // no selects in app yet
 .nav {
   margin: 40px;
 }
+
 .nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;  
+  overflow: hidden;
+  background-color: green;  
 }
 
 .nav li:first-child {
   padding-left: 0;
 }
 
-ul {
-  padding-left: 0;
+.nav li:last-child {
+  border-right: none;
+}
+.nav-login-name {
+  float: right;   
 }
 
-li {
+ul {
+  padding-left: 0;  
+}
+
+.active {
+  background-color: #4CAF50;
+}
+.li-std  {
+  float: left;
+  border-right: 1px solid #bbb; 
+}
+.nav-login-name {
+  padding: 14px 16px;  
+  color: yellow;
+}
+
+.nav li a {
+  padding: 14px 16px;
+  display: block;    
+  text-decoration: none; 
+  color: white;
+  text-align: center; 
+  font-family: Helvetica;  
+}
+  
+.nav li a:hover {
+  background-color: #111;
+}
+
+.dashboard-list li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;

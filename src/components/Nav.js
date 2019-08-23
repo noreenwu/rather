@@ -8,18 +8,18 @@ export default function Nav (props) {
 
     <nav className='nav'>
       <ul>
-        <li>
+        <li className="li-std">
          <NavLink to='/' exact activeClassName='active'>
             Home
 	     </NavLink>
         </li>
-        <li>
+        <li className="li-std">
           <NavLink to='/add' activeClassName='active'>
             New Question
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/leaderboard' activeClassName='leaderboard'>
+        <li className="li-std">
+          <NavLink to='/leaderboard' activeClassName='active'>
             Leader Board
           </NavLink>
         </li>
