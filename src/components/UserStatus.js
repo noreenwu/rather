@@ -4,7 +4,6 @@ import Avatar from './Avatar'
 
 class UserStatus extends Component {
    render() {
-     console.log("UserStatus: ", this.props.name);
      const {name, avatar, numAnswers, numQuestions, totalScore} = this.props
      return(
         

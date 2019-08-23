@@ -18,7 +18,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }  
   render() {
-    console.log("App");
     return (
       
       <Router>
@@ -68,5 +67,4 @@ function mapStateToProps ({ authedUser, users }) {
   }
 }
 
-//export default connect()(App)
 export default connect(mapStateToProps)(App)

@@ -65,8 +65,6 @@ class PollResults extends Component {
 
 function mapStateToProps({authedUser, users, questions}, {id}) {
   const question = questions[id]
-  //const votesOne = 0
-  console.log("PollResults: user ", users[authedUser].answers[id]);
   const userAnswer = users[authedUser].answers[id];
   
   return {

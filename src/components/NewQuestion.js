@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
-//import { handleAddQuestion } from '../actions/users'
 import { Redirect } from 'react-router-dom'
-//import NotFound from './NotFound'
+
 
 class NewQuestion extends Component {
   constructor(props) {
@@ -33,18 +32,10 @@ class NewQuestion extends Component {
     
     const {optionA, optionB} = this.state;
     const { dispatch } = this.props
-
-   // dispatch(handleAddQuestion(optionA, optionB))
-    
-   // this.setState(() => ({
-    //    optionA: '',
-    //    optionB: '',
-    //    toHome: true    // set after asynch call to handlesubmit
-    // }))     
+ 
     
     dispatch(handleAddQuestion(optionA, optionB))
     	.then(updateState => {
-			console.log('newquestion: updateState');
             this.setState(() => ({
                 optionA: '',
                 optionB: '',
@@ -72,7 +63,6 @@ class NewQuestion extends Component {
      }
          
 	 if (this.state.toHome === true) {
-         console.log("NewQuestion redirecting to /");
          return <Redirect to='/' />
       }
 

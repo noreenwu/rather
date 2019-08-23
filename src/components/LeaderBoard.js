@@ -41,10 +41,10 @@ function mapStateToProps( {users, authedUser } ) {
     const sorted = userVals.sort((a, b) => (Object.values(a.answers).length + Object.values(a.questions).length > 
                                             Object.values(b.answers).length + Object.values(b.questions).length 
                                  			? -1 : 1))
-    console.log("Leaderboard: userVals sorted", sorted);
-	sorted.forEach(function (item) {
-      console.log(item.id, item.name);
-    })
+
+    //sorted.forEach(function (item) {
+    // console.log(item.id, item.name);
+    //})
 	const sortedIds = sorted.map(x => x.id);                   
     return {
       sortedIds,

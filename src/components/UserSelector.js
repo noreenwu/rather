@@ -18,12 +18,10 @@ class UserSelector extends Component {
   
    handleChange(e) {
       const {dispatch } = this.props
-      console.log("UserSelector: handleChange ", e);
       
-	// change authedUser to e     
+	  // change authedUser to e     
       dispatch(handleChangeAuthedUser(e))
 
-	  console.log('UserSelector: updateState');
       this.setState(() => ({
         toHome: true
       }))         
@@ -32,8 +30,7 @@ class UserSelector extends Component {
    }  
    render() {
      const { userIds } = this.props;
-	 console.log("userIds", userIds);
-     console.log("userIds returnTo: ", this.props.returnTo);
+
 	 if (this.state.toHome === true) {
          return <Redirect to={this.props.returnTo} />
       }     
