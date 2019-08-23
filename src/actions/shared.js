@@ -22,8 +22,7 @@ export function handleInitialData () {
 export function handleVote (authedUser, qid, answer) {
   const info = { authedUser, qid, answer }
 
-  return (dispatch) => {
-    // dispatch(showLoading())   
+  return (dispatch) => {  
     dispatch(recordVote(info))
     
     return saveQuestionAnswer({

@@ -25,7 +25,7 @@ class App extends Component {
           <div className='container'>
             
             {this.props.loading === true
-              ? <LoadingBar/>
+              ? <LoadingBar />
               : <Fragment>
 		        <Nav name={this.props.name}/>
       
