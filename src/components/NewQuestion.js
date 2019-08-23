@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
 //import { handleAddQuestion } from '../actions/users'
-import { Redirect, withRouter  } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 //import NotFound from './NotFound'
 
 class NewQuestion extends Component {
@@ -124,4 +124,4 @@ function mapStateToProps( {authedUser} ) {
   }
 }
 //export default NewQuestion
-export default withRouter(connect(mapStateToProps)(NewQuestion))
+export default connect(mapStateToProps)(NewQuestion)
