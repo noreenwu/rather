@@ -21,13 +21,18 @@ class Poll extends Component {
            )       
      }     
      
-     // TODO: check if poll with specified id exists, and if not, redirect to NotFound
-     const { question } = this.props     
-     const {
-       //  optionA, optionB, 
-       id
-     } = question  
-     
+     const { id, question } = this.props     
+
+     if (question === null ) {
+         console.log("Poll: question is undefined");
+         return (
+             <Redirect to={{
+                  pathname: '/signin',
+                  state: { returnTo: '/notfound' }
+                 }}
+              />
+         )
+	 }
 
      if (this.props.isAnswered) {
          return(
@@ -52,7 +57,14 @@ class Poll extends Component {
 function mapStateToProps({authedUser, users, questions}, ownProps) {
   const {id} = ownProps.match.params
   const question = questions[id]
-  // did the authedUser answer this question?
+
+  if (question === undefined) {
+      return {
+         id,
+         question: null
+	  }
+  }
+
   return {
     id,
     authedUser,
@@ -68,5 +80,3 @@ function mapStateToProps({authedUser, users, questions}, ownProps) {
 
 //export default connect(mapStateToProps)(Poll)
 export default withRouter(connect(mapStateToProps)(Poll))
-
-//export default Poll
