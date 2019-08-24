@@ -24,10 +24,10 @@ class App extends Component {
         <Fragment>
           <div className='container'>
             
-            {this.props.loading === true
+           { this.props.loading === true
               ? <LoadingBar />
               : <Fragment>
-		        <Nav name={this.props.name}/>
+		        <Nav/>
       
       			<div>
                   <Switch>
@@ -40,29 +40,18 @@ class App extends Component {
 				  </Switch>
                 </div>
           		</Fragment>
-		}
+		   }
           </div>
-
         </Fragment>	  
-
       </Router>        
     )
   }
 }
 
 
-function mapStateToProps ({ authedUser, users }) {
-  const userInfo = users[authedUser];
-  let name = '';
-  for(const key in userInfo) {
-    if (key === 'name') {
-      name = userInfo[key];
-    }
-  }
+function mapStateToProps ({ authedUser }) {
   
   return {
-    name,
-    authedUser,
     loading: authedUser === null
   }
 }
