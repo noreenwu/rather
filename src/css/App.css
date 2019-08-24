@@ -1,7 +1,9 @@
 .center {
   text-align: center;
 }
-
+.bold {
+  font-weight: bold;
+}
 .game-logo {
   height: 400px; 
   text-align: center;
