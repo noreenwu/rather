@@ -38,8 +38,9 @@ class Dashboard extends Component {
     return (
       <Fragment>
           <div className="center">
-			  <div className="instructions">Welcome to Would You Rather...?<br/> To play, respond to the polls shown
-      			 or create your own by clicking New Question in the menu above.
+			  <div className="instructions">Welcome to <span className="bold">Would You Rather...?</span><br/> 
+      				To play, respond to the polls shown
+      			    or create your own by clicking New Question in the menu above.
       		  </div>
 			  <div className="btn-container">
                   <button
