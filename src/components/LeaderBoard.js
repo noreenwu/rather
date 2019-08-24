@@ -17,7 +17,7 @@ class LeaderBoard extends Component {
      }     
      return(
        <div className="center">
-	       LeaderBoard
+	       <div className="title">Leader Board</div>
               <ul className="user-list">
                 {this.props.sortedIds.map((id) => (
                   <li key={id}>

@@ -71,7 +71,7 @@
   width: 100%;
   max-width: 500px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 20px auto;
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: pointer;
@@ -93,7 +93,16 @@
   width: 100%;
 }
 
-
+.instructions {
+   padding: 10px;
+   border: 1px solid #dad7d7;
+   border-radius: 3px;
+   background-color: #f5f3f3;
+   font-style: Arial;
+   font-size: .9em;
+   text-align: center;
+   margin-bottom: 20px;
+}
 .title {
    padding: 10px;
    border: 1px solid #dad7d7;
@@ -150,7 +159,7 @@
   margin-bottom: 0;
 }
 .btn-full {
-  width: 100%;
+  width: 96%;
 }
 
 .highlight {
@@ -258,6 +267,7 @@ input[type=text], select {    // no selects in app yet
 }
 .nav {
   margin: 40px;
+  line-height: 1.8em;
 }
 
 .nav ul {
@@ -277,6 +287,8 @@ input[type=text], select {    // no selects in app yet
 }
 .nav-login-name {
   float: right;   
+  font-family: 'Georgia';
+  font-style: italic;
 }
 
 ul {
@@ -308,7 +320,12 @@ ul {
 }
   
 .nav li a:hover {
-  background-color: #111;
+  background-color: #046704;
+}
+
+.menu-avatar {
+  vertical-align: middle;
+  padding-left: 8px;
 }
 
 .dashboard-list li {

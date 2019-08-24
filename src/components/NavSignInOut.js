@@ -12,7 +12,12 @@ export default function NavSignInOut (props) {
                 </NavLink>
               </li>
               <li className="nav-login-name">
-                  Hello, {props.name}
+				  <div>
+                    Hello, {props.name}
+                    <img className="menu-avatar" 
+                         src={props.avatar} alt={`avatar of ${props.name}`}
+                         width={20} height={20} />
+				  </div>
               </li>         
           </Fragment>
        )
@@ -30,5 +35,6 @@ export default function NavSignInOut (props) {
 
 NavSignInOut.propTypes = {
    name: PropTypes.string.isRequired,
-   hover: PropTypes.string.isRequired
+   hover: PropTypes.string.isRequired,
+   avatar: PropTypes.string.isRequired
 }

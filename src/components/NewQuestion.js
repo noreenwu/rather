@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
 import { Redirect } from 'react-router-dom'
-
 
 class NewQuestion extends Component {
   constructor(props) {
@@ -49,10 +48,6 @@ class NewQuestion extends Component {
   render() {
     
      if ( this.props.authedUser === '' ) {
-         console.log("NewQuestion redirecting to /signin");
-         // this.props.history.push('/add')
-
-
          return (
            <Redirect to={{
                 pathname: '/signin',
@@ -68,9 +63,10 @@ class NewQuestion extends Component {
 
          
       return (
-
+        <Fragment>
+        <div className="title">Create New Question</div>
         <div className="question-frame">
-          <h3 className="title">Create New Question</h3>
+
           <p>Complete the question:</p>
           <div className="subheading">Would you rather...</div>
           <form className='new-question' onSubmit={this.handleSubmit}>
@@ -103,6 +99,7 @@ class NewQuestion extends Component {
             </button>
           </form>
         </div>    
+        </Fragment>
       )
     
   }

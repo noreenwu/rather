@@ -41,8 +41,10 @@ class Nav extends Component {
       leaderHover = ''
       signinHover = ''        
   }
+    
+  console.log("Nav : avatar: ", this.props.avatar);
+    
   return (
-
     <nav className='nav'>
       <ul>
         <li className={`li-std ${homeHover}`}>
@@ -60,7 +62,7 @@ class Nav extends Component {
             Leader Board
           </NavLink>
         </li>
-		<NavSignInOut name={this.props.name} hover={`${signinHover}`}/>
+		<NavSignInOut name={this.props.name} hover={`${signinHover}`} avatar={this.props.avatar}/>
 
       </ul>
     </nav>
@@ -71,15 +73,20 @@ class Nav extends Component {
 function mapStateToProps ({ authedUser, users } ) {
   const userInfo = users[authedUser];
   let name = '';
+  let avatar = ''
   for(const key in userInfo) {
     if (key === 'name') {
       name = userInfo[key];
     }
+    if (key === 'avatarURL') {
+      avatar = userInfo[key];
+	}
   }
   
   return {
     authedUser,
-    name
+    name,
+    avatar
   }
 }
 
