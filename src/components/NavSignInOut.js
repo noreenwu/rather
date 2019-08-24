@@ -6,7 +6,7 @@ export default function NavSignInOut (props) {
      if (props.name !== '') {
        return (
           <Fragment>
-              <li className="li-std">
+              <li className={`li-std ${props.hover}`}>
                 <NavLink to='/signin' activeClassName='active'>
                   Logout
                 </NavLink>
@@ -19,7 +19,7 @@ export default function NavSignInOut (props) {
      }
      else {
         return (
-          <li className="li-std">
+          <li className={`li-std ${props.hover}`}>
              <NavLink to='/signin' activeClassName='active'>
              	Sign in
              </NavLink>
@@ -30,4 +30,5 @@ export default function NavSignInOut (props) {
 
 NavSignInOut.propTypes = {
    name: PropTypes.string.isRequired,
+   hover: PropTypes.string.isRequired
 }

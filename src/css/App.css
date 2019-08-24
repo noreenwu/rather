@@ -290,6 +290,9 @@ ul {
   float: left;
   border-right: 1px solid #bbb; 
 }
+.ignoremouse {
+  pointer-events: none;
+}
 .nav-login-name {
   padding: 14px 16px;  
   color: yellow;
