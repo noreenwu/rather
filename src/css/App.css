@@ -132,6 +132,7 @@ body {
 }
 
 .subheading {
+   font-size: 1.2em;
    font-weight: bold;
    margin: 25px 0 10px;
 }
@@ -169,8 +170,12 @@ body {
   padding: 5px;
   font-size: 1.3em;
   cursor: pointer;  
+  border: 1px solid #5da6e6;
+  background-color: aliceblue;
 }
-
+.btn:hover:enabled {
+  background-color: #4CAF50;
+}
 .btn-half {
   width: 42%;
   margin-bottom: 0;
