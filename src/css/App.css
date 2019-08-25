@@ -1,14 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 .center {
   text-align: center;
 }
 .bold {
   font-weight: bold;
 }
-.game-logo {
+.game-logo-large {
+  font-size: 5em;
+}
+.game-logo-small {
+  font-size: 4em;
+}
+.game-logo {  
+  font-family: Impact;
+  font-style: italic;
+  line-height: 4em;
+  color: green;
+  padding-top: 40px;
   height: 400px; 
   text-align: center;
-  align-items: center;
-    
+  align-items: center;  
 }
 .avatar {
    margin-bottom: 5px;
@@ -336,28 +351,3 @@ ul {
   text-decoration: none;
 }
 /* */
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}

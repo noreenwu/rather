@@ -30,7 +30,6 @@ export function handleVote (authedUser, qid, answer) {
          qid,
          answer
       })
-	 // .then(() => dispatch(hideLoading()))    
       .catch((e) => {
         console.warn('Error in handleVote: ', e)
       })
@@ -48,7 +47,6 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
       author: authedUser,
     })
      .then((question) => dispatch(addQuestion(question, authedUser)))
-//     .then((question) => dispatch(addQuestionUser(question, authedUser)))
   
   }
 }

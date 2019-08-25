@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import { handleVote } from '../actions/shared'

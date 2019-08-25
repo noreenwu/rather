@@ -52,8 +52,8 @@ class UserSelector extends Component {
 
 function mapStateToProps( {users, authedUser}, {returnTo} ) {
     const userIds = Object.values(users).map(x => x.id)
-    //const userNames = Object.values(users).map(x => x.name)
-	return {
+
+    return {
       authedUser,
       userIds,
       users      // if another component renders the option in the select, then it can pull out the name from users

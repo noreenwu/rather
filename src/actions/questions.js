@@ -21,8 +21,6 @@ export function recordVote ({ authedUser, qid, answer }) {
 
 
 export function addQuestion(question, authedUser) {
-  //console.log("actions/addQuestion ", question, authedUser);
-  //console.log("actions/addQuestion: do we know the question id? ", question.id);
   const qid = question.id
   return {
     type: ADD_QUESTION,

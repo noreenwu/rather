@@ -32,24 +32,17 @@ class LeaderBoard extends Component {
 }
 
 function mapStateToProps( {users, authedUser } ) {
-    // TODO: users need to be sorted in order of highest to lowest score, which is 
-    //   answered questions + created questions
-  
-    // const userIds = Object.keys(users);  
+
     const userVals = Object.values(users);
-    // console.log("Leaderboard: uservals", userVals);
     const sorted = userVals.sort((a, b) => (Object.values(a.answers).length + Object.values(a.questions).length > 
                                             Object.values(b.answers).length + Object.values(b.questions).length 
                                  			? -1 : 1))
 
-    //sorted.forEach(function (item) {
-    // console.log(item.id, item.name);
-    //})
 	const sortedIds = sorted.map(x => x.id);                   
     return {
       sortedIds,
       authedUser
     }
 }
-//export default LeaderBoard
+
 export default connect(mapStateToProps)(LeaderBoard)
