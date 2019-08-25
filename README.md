@@ -8,7 +8,7 @@ This React Redux app implements the game Would You Rather...?
 
 The game consists of a set of questions in the form Would your rather do Option One or Option Two. 
 Each user responds to these questions and the polling responses are collected and displayed. 
-Each user may create their own polls as well. A leaderboard shows which users have created and 
+Each user may create their own polls as well. A leader board shows which users have created and 
 answered the most number of questions.
 
 
@@ -43,9 +43,14 @@ back to what is stored as initial data.
 
 ## Required Files
 
-Components
+Top level (in src)
+  index.js - This file contains BrowserRouter wrapper that allows the routing in the app 
+  to work and also and Provider, which allows all the components are able to get data from the store. 
+  This file calls src/components/App.js
+       
+Components (in src/components)
   App.js - central, top-level component that incorporates the Navigation bar (Nav.js) and the 
-  	definitions of which components to run based on the Route
+  	definitions for which components to run based on the Route
     
     Nav.js - renders the navigation bar across all the app pages
   
@@ -78,7 +83,7 @@ Components
              results, the BarGraph module shows the results in a bar graph, and BarResult describes them
              numerically
              
-             Option.js - renders the user's option A or option B. It is just a function receiving a prop, not a component.
+             Option.js - renders the question's Option One or Option Two. It is just a function receiving a prop, not a component.
              
              BarGraph.js - makes use of css to draw a graph representing aggregate vote response
              
@@ -112,20 +117,73 @@ Components
   SignIn.js - This page is shown when the user logs out, or if anything in the address bar is typed (since
      that triggers a reload of the app), and the first time the application is opened
   
-     UserSelector.js - displays the drop-down controller that allows a user to login from the SignIn page
-     UserOption.js - displays the actual options within the selector from UserSelector
-  
+     UserSelector.js - displays the drop-down controller that allows a user to login from the SignIn page.
+    	 If a user is selected from the dropdown list, then handleChangeAuthedUser is invoked, which then 
+         dispatches the setAuthedUser action, resulting in the authed user reducer being executed.
+         
+     UserOption.js - displays the actual options within the selector from UserSelector. 
+   
 
- 
+Actions (in src/actions)
+   authedUser.js
+       contains functionality for setting the initial authedUser to '' and for changing the authedUser to
+       whatever is specified, either '' for logging out or a user's id for logging in
+   
+   questions.js
+       contains functionality for loading the initial questions that are saved in the DATA.js datastructure,
+       as well as recordVote and addQuestion actions.
+       
+   shared.js
+       contains functionality that bridges the different slices of state. For example, setting up the initial
+       state requires the authedUser to be set and that the users and questions data be loaded. In addition,
+       handling votes and adding questions involves saving data to both the users slice and the questions slice.
+   
+   users.js
+       contains functionality for loading the users slice of state
 
-Actions
 
-Reducers
+Reducers (in src/reducers)
+   authedUser.js
+       contains the reducer for updating the authedUser state
+       
+   index.js
+   	   this module contains the combineReducers function, which allows reducers in more than one segment
+       to be run for one action, e.g. an update to the questions and users state can be made when handling
+       a vote or adding a new question. This allows the Leader Board and the Poll Results page to display
+       the connection between the users and the questions they created and their question responses.
+   
+   questions.js
+       updates to the state that involve questions are in this module: loading question data, adding new
+       questions, recording votes
+       
+   users.js
+       updates to the users slice of the state are in this module; loading users data, adding new
+       questions (the id is saved to the author's created questions list), and voting (user's response
+       is saved in the user's profile)
 
-Utils
+       
+   
+Utils (in src/utils)
+   DATA.js  - contains the initial data for the application, as well as functions that operate on it
+   
+   apis.js - contains slightly higher level functions that operate on the DATA; these are intended to be
+       used by the rest of the application logic
+       
+   helpers.js - these functions are used throughout; they help to format the data into more convenient forms
+   
+   
+Middleware (in src/middleware)
+   index.js - contains the list of middleware pieces that are to be run
+   
+   logger.js - prints out the current state whenever it changes: very helpful in debugging
+   
+Css (in src/css)
+   App.css - all the styles for the application
 
-Middleware
-
-Css
-
-Images
+Images (in public/images)
+   images for this app are in /public/images:
+       penguin-100x100.jpg  (avatar for John Doe)
+       user-female-100.jpg  (avatar for Sarah Edo)
+       user-male-100.jpg    (avatar for Tyler McGinnis)
+       would-you-rather-logo.jpg (image for login screen)
+       
