@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-//import PropTypes from 'prop-types'
 import NavSignInOut from './NavSignInOut'
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -42,7 +41,6 @@ class Nav extends Component {
         signinHover = ''        
     }
 
-    console.log("Nav : avatar: ", this.props.avatar);
 
     return (
       <nav className='nav'>
