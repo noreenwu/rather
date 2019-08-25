@@ -14,11 +14,13 @@ class Dashboard extends Component {
   handleChange(val) {
 	if (val === 'answered') {
       this.setState( {
-          questionIds: this.props.answeredIds
+          questionIds: this.props.answeredIds,
+          questionSet : 'answered'
       })      
     } else if (val === 'unanswered') {
       this.setState( {
-          questionIds: this.props.unansweredIds
+          questionIds: this.props.unansweredIds,
+          questionSet: 'unanswered'
       })        
 	}
   }
@@ -58,10 +60,12 @@ class Dashboard extends Component {
                   >Answered</button>
 			  </div>
               <ul className='dashboard-list'>
-                {this.state.questionIds.map((id) => (
-                  <li key={id}>
-                    <Question id={id}/>
-                  </li>
+                {this.state.questionIds.length === 0 && this.state.questionSet === 'unanswered'
+                  ? <li key={`none`}> There are no questions to answer. What about creating some? </li>
+                  : this.state.questionIds.map((id) => (
+                    <li key={id}>
+                      <Question id={id}/>
+                    </li>
                 ))}
               </ul>          
           </div>
