@@ -44,14 +44,19 @@ back to what is stored as initial data.
 ## Required Files
 
 Components
-  App.js - central component that incorporates the Navigation bar (Nav.js) and the 
+  App.js - central, top-level component that incorporates the Navigation bar (Nav.js) and the 
   	definitions of which components to run based on the Route
     
+    Nav.js - renders the navigation bar across all the app pages
+  
+  	NavSignInOut.js - is called by Nav.js to render either "Logout" or "Signin," depending on
+      whether a user is logged in or not.
+    
   Dashboard.js - the component that defines what shows up on the Dashboard or user's Home screen.
-    To do this, it separates the user's answered questions from the unanswered ones and makes
+    To do this, it separates the user's answered questions from the unanswered ones and has
     the Question module render each question (only a question teaser is shown at this point, with
-    a button to respond to or view results of a question). The questions are ordered by time of
-    creationg, from most recent to least recent
+    a button to view details about a question, or respond to it). The questions are ordered by time of
+    creation, from most recent to least recent
     
     Question.js - called on by Dashboard to handle the rendering of a Question on the home screen.
          Question utilizes Avatar (to display the question creator's avatar) 
@@ -68,10 +73,12 @@ Components
              and src/utils/apis.js: saveQuestionAnswer). The follow-up screen after submitting a vote
              is the PollResult, displaying the collective result in aggregate, as well as the user's response
   
-   		PollResult.js - this module is called as a result of the user casting a vote, or if the user
+   		PollResults.js - this module is called as a result of the user casting a vote, or if the user
              has already answered the question at some time previously. In order to display the aggregate
              results, the BarGraph module shows the results in a bar graph, and BarResult describes them
              numerically
+             
+             Option.js - renders the user's option A or option B. It is just a function receiving a prop, not a component.
              
              BarGraph.js - makes use of css to draw a graph representing aggregate vote response
              
@@ -81,35 +88,35 @@ Components
              FlagUserResponse.js - PollResult also calls FlagUserResponse, which utilizes css to display an
                 emblem indicating which of the 2 responses the user voted for
                 
+  
+  LeaderBoard.js - The LeaderBoard page at /leaderboard is controlled by this component. The total score for
+     each user is the sum of the number of questions s/he has created and the number of questions s/he has
+     answered. The users are displayed in order of highest score to lowest, and UserStatus is used to
+     help display each user's score and the breakdown of the score. UserStatus calls Avatar to help
+     with Avatar display.
+     
+     UserStatus.js  - displays each user's score, plus the breakdown of each score
+  
+  NewQuestion.js - the NewQuestion component renders the form that allows the user to create a new question.
+     It is available at /add, and dispatches the actions/shared/handleAddQuestion function, which calls the 
+     src/utils/apis.js: saveQuestion api, and then dispatches the addQuestion reducer, triggering
+     the ADD_QUESTION reducer logic for both users (src/reducers/users.js) and questions (src/reducers/questions.js).
+     Its only state is to control when the Submit button becomes active and to control, whether the page
+     should be redirected to Home (at /), which happens once the user has submitted the form.
+     
+  
+  NotFound.js - displays a not found message if the user types in a url that is not part of the application,
+     or if an invalid question id is supplied in the url /questions/:id
             
-
   
+  SignIn.js - This page is shown when the user logs out, or if anything in the address bar is typed (since
+     that triggers a reload of the app), and the first time the application is opened
   
-  LeaderBoard.js
-  
-  Nav.js
-  
-  NavSignInOut.js
-  
-  NewQuestion.js
-  
-  NotFound.js
-  
-  Option.js
-  
-  Poll.js
-  
-  PollResults.js
+     UserSelector.js - displays the drop-down controller that allows a user to login from the SignIn page
+     UserOption.js - displays the actual options within the selector from UserSelector
   
 
-  
-  SignIn.js
-  
-  UserOption.js
-  
-  UserSelector.js
-  
-  UserStatus.js
+ 
 
 Actions
 
