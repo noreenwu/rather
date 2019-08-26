@@ -2,8 +2,6 @@ import { RECEIVE_USERS } from '../actions/users'
 import { ADD_QUESTION, RECORD_VOTE } from '../actions/questions'
 
 export default function users (state = {}, action) {
-  let users = state
-  let user
 
   switch(action.type) {
     case RECEIVE_USERS :
@@ -12,20 +10,26 @@ export default function users (state = {}, action) {
         ...action.users
       }
     case ADD_QUESTION :      
-      const { qid, authedUser } = action
-
-      user = users[authedUser]
-      user.questions.push(qid);   // this adds the new question to the user's created questions in the state
-      return {
-        ...state,
-      }
-    case RECORD_VOTE :       
-      user = users[action.authedUser] 
-      user.answers[action.qid] = action.answer; // add answered question's id and the user's answer 
-      											//    to the authed user's answers object
+      const { qid } = action
+      
+      let newQuestions = state[action.authedUser].questions.slice();
+      newQuestions.push(qid);
       
       return {
-        ...state,        	
+        ...state,
+        [action.authedUser] : {
+          ...state[action.authedUser],
+          questions: newQuestions
+        }       
+      }
+    case RECORD_VOTE :            
+      let newAnswers = Object.assign({}, state[action.authedUser].answers, {[action.qid]: action.answer});
+      return {
+        ...state,     
+        [action.authedUser] : {
+           ...state[action.authedUser],  
+           answers: newAnswers       
+          }        
       }
     default :
       return state
