@@ -16,15 +16,20 @@ class NewQuestion extends Component {
   }
 
 
+//  handleChange(e) {
+//	this.setState(
+//      {
+//        optionA: e.target.name === "optionA" ? e.target.value : this.state.optionA,
+//        optionB: e.target.name === "optionB" ? e.target.value : this.state.optionB
+//      }
+//    )
+//  }
+  
   handleChange(e) {
-	this.setState(
-      {
-        optionA: e.target.name === "optionA" ? e.target.value : this.state.optionA,
-        optionB: e.target.name === "optionB" ? e.target.value : this.state.optionB
-      }
-    )
+      this.setState({
+        [e.target.name]: e.target.value
+      })
   }
-
   
   handleSubmit(e) {
     e.preventDefault();
