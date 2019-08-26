@@ -81,12 +81,13 @@ function mapStateToProps( {questions, authedUser}) {
   const unanswered = qvals.filter(q => !q.optionOne.votes.includes(authedUser) &&
                                   	   !q.optionTwo.votes.includes(authedUser));
   
-  const unansweredSorted = unanswered.sort((a,b) => a.timestamp > b.timestamp ? -1 : 1 );
-  
+  const unansweredSorted = unanswered.sort((a,b) => b.timestamp - a.timestamp);
   const unansweredIds = unansweredSorted.map(q => q.id);
   
-  const answered = qvals.filter(q => unansweredIds.indexOf(q.id) === -1);
-  const answeredSorted = answered.sort((a,b) => a.timestamp > b.timestamp ? -1 : 1);
+  //const answered = qvals.filter(q => unansweredIds.indexOf(q.id) === -1);
+  const answered = qvals.filter(q => !unansweredIds.includes(q.id));
+  
+  const answeredSorted = answered.sort((a,b) => b.timestamp - a.timestamp);
   
   const answeredIds = answeredSorted.map(q => q.id);
   
@@ -97,5 +98,4 @@ function mapStateToProps( {questions, authedUser}) {
     }
 }
 
-//export default withRouter(connect(mapStateToProps)(Tweet))
 export default connect(mapStateToProps)(Dashboard)
