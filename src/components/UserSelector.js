@@ -57,8 +57,8 @@ function mapStateToProps( {users, authedUser}, {returnTo} ) {
       authedUser,
       userIds,
       users      // if another component renders the option in the select, then it can pull out the name from users
-    }
-  
+    }  
 }
+
 
 export default connect(mapStateToProps)(UserSelector)

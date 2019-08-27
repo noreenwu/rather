@@ -82,6 +82,7 @@ function mapStateToProps( {questions, authedUser}) {
                                   	   !q.optionTwo.votes.includes(authedUser));
   
   const unansweredSorted = unanswered.sort((a,b) => b.timestamp - a.timestamp);
+
   const unansweredIds = unansweredSorted.map(q => q.id);
   
   //const answered = qvals.filter(q => unansweredIds.indexOf(q.id) === -1);
