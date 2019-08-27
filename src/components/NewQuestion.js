@@ -15,15 +15,6 @@ class NewQuestion extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);    
   }
 
-
-//  handleChange(e) {
-//	this.setState(
-//      {
-//        optionA: e.target.name === "optionA" ? e.target.value : this.state.optionA,
-//        optionB: e.target.name === "optionB" ? e.target.value : this.state.optionB
-//      }
-//    )
-//  }
   
   handleChange(e) {
       this.setState({
