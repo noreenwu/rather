@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 import Avatar from './Avatar'
@@ -6,9 +6,9 @@ import Option from './Option'
 import BarResult from './BarResult'
 import FlagUserResponse from './FlagUserResponse'
 
-class PollResults extends Component {
-  render() {
-    const { question, votesOne, votesTwo, userAnswer } = this.props
+function PollResults ( props ) {
+
+    const { question, votesOne, votesTwo, userAnswer } = props
 
     let optionOneHighlight, optionTwoHighlight = ''
     let optionOneHide, optionTwoHide = ''
@@ -60,7 +60,6 @@ class PollResults extends Component {
       
        </div>
     )
-  }
 }
 
 function mapStateToProps({authedUser, users, questions}, {id}) {

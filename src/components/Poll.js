@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import {   withRouter } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
@@ -6,22 +6,23 @@ import PollResults from './PollResults'
 import Ballot from './Ballot'
 import { Redirect } from 'react-router-dom'
 
-class Poll extends Component {
+function Poll ( props ) {
 	
-   render() {
-     if (this.props.authedUser === '') {
-           console.log("Poll will redirect and the id is ", this.props.id);
+     const { id, question, isAnswered, authedUser } = props
+
+     if (authedUser === '') {
+           console.log("Poll will redirect and the id is ", id);
        
            return (
              <Redirect to={{
                   pathname: '/signin',
-                  state: { returnTo: `/questions/${this.props.id}` }
+                  state: { returnTo: `/questions/${id}` }
                  }}
               />
            )       
      }     
      
-     const { id, question } = this.props     
+    // const { id, question } = this.props     
 
      if (question === null ) {
          console.log("Poll: question is undefined");
@@ -34,7 +35,7 @@ class Poll extends Component {
          )
 	 }
 
-     if (this.props.isAnswered) {
+     if (isAnswered) {
          return(
 
            <div>
@@ -51,7 +52,6 @@ class Poll extends Component {
        
      }
 
-   } 
 }
 
 function mapStateToProps({authedUser, users, questions}, ownProps) {
