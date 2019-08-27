@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Avatar from './Avatar'
 
-class UserStatus extends Component {
-   render() {
-     const {name, avatar, numAnswers, numQuestions, totalScore} = this.props
+
+function UserStatus( props ) {
+     const {name, avatar, numAnswers, numQuestions, totalScore} = props
      return(
         
         <div className="user-status">
@@ -29,7 +29,7 @@ class UserStatus extends Component {
 		   </div>
         </div>
      )
-   }
+   
 }
 
 function mapStateToProps( {users}, {id} ) {
@@ -49,4 +49,4 @@ function mapStateToProps( {users}, {id} ) {
   }
    
 }
-export default connect(mapStateToProps)(UserStatus)
+export default connect(mapStateToProps)(UserStatus);
