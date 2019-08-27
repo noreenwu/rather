@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-class UserOption extends Component {  
-   render() {
-     const {id, name } = this.props
-     
-     return(
-     	<option  value={id}>{name}</option>	
-                
-     )
-   }
-  
+function UserOption ( props ) {
+
+  const {id, name } = props
+
+  return(
+    <option  value={id}>{name}</option>	                
+  )  
 }
 
 

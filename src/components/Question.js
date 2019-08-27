@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion, formatDate } from '../utils/helpers'
 import { Link , withRouter } from 'react-router-dom'
 import Avatar from './Avatar'
 
-class Question extends Component {
-  render() {
-   // console.log("Question: ", this.props)
-    const { question } = this.props
+function Question ( props ) {
+    const { question } = props
 
     if (question === null) {
       return <p>This Question doesn't exist</p>
@@ -36,7 +34,6 @@ class Question extends Component {
 		  </div>
       </div>
     )
-  }
 }
 
 function mapStateToProps({authedUser, users, questions}, {id}) {
