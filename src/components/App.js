@@ -36,7 +36,7 @@ class App extends Component {
                     <Route path='/add' component={NewQuestion} />
                     <Route path='/leaderboard' component={LeaderBoard} />
                     <Route path='/questions/:id' component={Poll} />
-                    <Route path='/signin' component={SignIn} />
+                    <Route path='/:path(signin|rather)' component={SignIn} />
 
                     <Route component={NotFound} />	
 		  </Switch>

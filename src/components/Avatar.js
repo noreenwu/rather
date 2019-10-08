@@ -6,26 +6,36 @@ import Penguin from '../images/penguin-100x100.jpg'
 
 
 const Avatar = (props) => {
+    
     if (props.avatar === 'female') {
 	return (
-	   <img className="avatar" 
+	    <img className={props.class}
                  alt="avatar of {props.name}"
-                src={Sarah}/>    	    
+                 src={Sarah}
+	         width={props.width}
+	         height={props.height}	    
+		/>    	    
 	)
     }
     else if (props.avatar === 'male') {
 	return (
-	   <img className="avatar" 
+	    <img className={props.class}
                  alt="avatar of {props.name}"
-                src={Tyler}/>    	    	    
+                 src={Tyler}
+	         width={props.width}
+	         height={props.height}
+	        />
 	)
     }
 
     else {
 	return (
-	   <img className="avatar" 
+	    <img className={props.class} 
                  alt="avatar of {props.name}"
-                src={Penguin}/>    	    	    
+                 src={Penguin}
+	         width={props.width}
+	         height={props.height}
+	        />
 	)
     }
 
@@ -34,6 +44,12 @@ const Avatar = (props) => {
 Avatar.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+}
+
+Avatar.defaultProps = {
+    class: 'avatar',
+    width: '100',
+    height: '100'
 }
 
 export default Avatar

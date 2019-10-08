@@ -7,7 +7,8 @@ const NotFound = (props) => {
       <div className="center">
       <h3>404</h3> 
       <div>
-      The page you specified could not be found.
+	    The page you specified could not be found.
+
       </div>
       </div>
     )  
