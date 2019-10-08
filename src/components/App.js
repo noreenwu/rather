@@ -32,7 +32,7 @@ class App extends Component {
       			<div>
              <Switch>
 
-   	            <Route path={process.env.PUBLIC_URL + '/'} exact component={Dashboard} />
+   	            <Route path='/' exact component={Dashboard} />
                     <Route path='/add' component={NewQuestion} />
                     <Route path='/leaderboard' component={LeaderBoard} />
                     <Route path='/questions/:id' component={Poll} />
